@@ -1,0 +1,50 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: white;
+    border-bottom: 1px solid #ddd;
+  
+    .left {
+      display: flex;
+      align-items: center;
+  
+      .logo {
+        width: 100px;
+        margin-right: 20px;
+      }
+  
+      .nav a {
+        margin-right: 15px;
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+      }
+    }
+  
+    .right a {
+      margin-left: 15px;
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+  }
+  
+  .image-section {
+    text-align: center;
+    margin: 40px 0;
+  
+    .animated-image {
+      width: 400px;
+      animation: float 3s ease-in-out infinite;
+    }
+}
+@keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
