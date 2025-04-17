@@ -1,10 +1,12 @@
 <div class="container">
     <div class="product-card">
-      <h1 class="product-title">{{ product.title }}</h1>
-      <img [src]="product.image" alt="{{ product.title }}" class="product-image" />
+      <h1 class="product-title">{{ product.name }}</h1>
+      <img [src]="product.image" alt="{{ product.name }}" class="product-image" />
       <p class="product-description">{{ product.description }}</p>
       <p class="product-price">Prix : {{ product.price }}€</p>
-      <button class="request-quote-button" >Demande de devis</button>
+      <button class="devis-button" (click)="addstore()">Demande de devis</button>
+     
+
     </div>
   </div>
   

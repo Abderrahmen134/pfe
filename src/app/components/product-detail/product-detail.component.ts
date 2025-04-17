@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router'; // ✅ tu avais oublié Router
+import { Product } from 'src/app/models/model';
+
+import { CartService } from 'src/app/services/cart.service';
+import { ProductService } from 'src/app/services/product.service';
 
 @Component({
   selector: 'app-product-detail',
@@ -7,18 +11,31 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./product-detail.component.scss']
 })
 export class ProductDetailComponent implements OnInit {
-  product: any;
+  product: Product = {
+    id: 0,
+    name: '',
+    description: '',
+    quantity: 0,
+    price: 0,
+    image: ''
+  };
 
-  products = [
-    { id: 1, title: 'PRO STORE', description: 'Pro Store est un logiciel simple à maîtriser. De la gestion des articles, à la vente, Pro Store vous offre tout ce qu’il faut pour une gestion sereine de votre activité :', price: '399€', image: 'assets/images/product1.jpg' },
-    { id: 2, title: 'Pro Para', description: 'Pro Para is an intuitive management software for paramedical and parapharmaceutical stores :',price: '399€', image: 'assets/images/product2.jpg' },
-  ];
-
-  constructor(private route: ActivatedRoute) {}
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router, // ✅ Ajouté pour la navigation
+    private productService: ProductService,
+    private cartService: CartService
+  ) {}
 
   ngOnInit(): void {
     const productId = Number(this.route.snapshot.paramMap.get('id'));
-    this.product = this.products.find(p => p.id === productId);
+    this.productService.getProductsById(productId).subscribe(data => {
+      this.product = data;
+    });
   }
 
+  addstore(): void {
+    this.cartService.setProduct(this.product); // ✅ Correction : this.product au lieu de product
+    this.router.navigate(['/demande-devis']); // ✅ Navigation vers la page demande-devis
+  }
 }

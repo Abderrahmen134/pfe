@@ -1,21 +1,31 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ProductService } from '../../services/product.service';
 
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.scss']
 })
-export class ProductComponent {
-  products = [
-    { id: 1, title: 'Product 1', description: 'Description for product 1', image: 'assets/images/product1.jpg' },
-    { id: 2, title: 'Product 2', description: 'Description for product 2', image: 'assets/images/product2.jpg' },
-  ];
-  
+export class ProductComponent implements OnInit {
+  products: any[] = [];
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private productService: ProductService
+  ) {}
 
-  viewProductDetail(productId: number) {
+  ngOnInit(): void {
+    this.loadProducts();
+  }
+
+  loadProducts(): void {
+    this.productService.getProducts().subscribe(data => {
+      this.products = data;
+    });
+  }
+
+  viewProductDetail(productId: number): void {
     this.router.navigate(['/product-detail', productId]);
   }
 }

@@ -44,18 +44,27 @@
     margin-bottom: 30px;
   }
   
-  .request-quote-button {
-    background-color: #27ae60;
+  .devis-button {
+    background: linear-gradient(135deg, #ff7e5f, #feb47b);
     color: white;
     border: none;
-    padding: 12px 24px;
+    padding: 14px 28px;
+    border-radius: 50px;
     font-size: 16px;
-    border-radius: 6px;
+    font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
+    transition: all 0.4s ease;
+    box-shadow: 0 4px 15px rgba(255, 126, 95, 0.4);
   
-  .request-quote-button:hover {
-    background-color: #219150;
+    &:hover {
+      background: linear-gradient(135deg, #feb47b, #ff7e5f);
+      box-shadow: 0 6px 20px rgba(255, 126, 95, 0.6);
+      transform: translateY(-2px);
+    }
+  
+    &:active {
+      transform: translateY(1px);
+      box-shadow: 0 3px 10px rgba(255, 126, 95, 0.4);
+    }
   }
   

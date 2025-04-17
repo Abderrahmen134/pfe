@@ -1,0 +1,54 @@
+<div class="container">
+    <div class="header">
+        <button class="btn-orange">Retour</button>
+    </div>
+  
+    <div class="product-list">
+      <div class="product-header">
+        <span>Produit</span>
+        <span>Quantité</span>
+      </div>
+  
+      <div class="product-item">
+        <span class="remove">✖</span>
+        <img src="assets/images/gsan-tpv-311.jpg" alt="GSAN TPV 311" class="product-image" />
+        <span class="product-title">GSAN TPV 311</span>
+        <input type="number" min="1" value="1" class="quantity-input" />
+      </div>
+    </div>
+  
+    <h2>Envoyer la demande</h2>
+  </div>
+
+<form>
+  <div class="form-group">
+    <label for="prenom">Nom complet <span class="required">*</span></label>
+    <div class="name-fields">
+      <input type="text" id="prenom" placeholder="Prénom" required>
+      <input type="text" id="nom" placeholder="Nom" required>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="email">E-mail <span class="required">*</span></label>
+    <input type="email" id="email" placeholder="Votre e-mail" required>
+  </div>
+
+  <div class="form-group">
+    <label for="telephone">Téléphone <span class="required">*</span></label>
+    <input type="tel" id="telephone" placeholder="Votre téléphone" required>
+  </div>
+
+  <div class="form-group">
+    <label for="ville">Ville <span class="required">*</span></label>
+    <input type="text" id="ville" placeholder="Votre ville" required>
+  </div>
+
+  <div class="form-group">
+    <label for="societe">Société <span class="required">*</span></label>
+    <input type="text" id="societe" placeholder="Nom de votre société" required>
+  </div>
+
+  <button type="submit">Envoyer</button>
+  
+</form>

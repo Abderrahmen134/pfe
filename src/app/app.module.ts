@@ -9,6 +9,8 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { ProductComponent } from './components/product/product.component';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
+import { HttpClientModule } from '@angular/common/http';
+import { DemandeDevisComponent } from './components/demande-devis/demande-devis.component';
 
 
 @NgModule({
@@ -21,10 +23,12 @@ import { ProductDetailComponent } from './components/product-detail/product-deta
     AdminComponent,
     ProductComponent,
     ProductDetailComponent,
+    DemandeDevisComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

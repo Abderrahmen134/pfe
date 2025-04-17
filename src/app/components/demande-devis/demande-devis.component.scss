@@ -1,0 +1,152 @@
+.container {
+    padding: 20px;
+  
+    .header {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 30px;
+  
+      .btn-orange {
+        background-color: #f57224;
+        border: none;
+        padding: 10px 30px;
+        color: white;
+        font-weight: bold;
+        border-radius: 3px;
+        cursor: pointer;
+        box-shadow: 0 4px 8px rgba(245, 114, 36, 0.4);
+        transition: background-color 0.3s;
+  
+        &:hover {
+          background-color: #e9651e;
+        }
+      }
+    }
+  
+    .product-list {
+      margin-bottom: 30px;
+  
+      .product-header {
+        display: flex;
+        justify-content: space-between;
+        font-weight: bold;
+        margin-bottom: 20px;
+        padding: 0 20px;
+      }
+  
+      .product-item {
+        display: flex;
+        align-items: center;
+        position: relative;
+        margin-bottom: 20px;
+  
+        .remove {
+          color: red;
+          font-size: 20px;
+          cursor: pointer;
+          margin-right: 15px;
+          position: absolute;
+          left: 0;
+        }
+  
+        .product-image {
+          width: 150px;
+          height: auto;
+          margin-left: 30px;
+        }
+  
+        .product-title {
+          margin-left: 20px;
+          flex-grow: 1;
+        }
+  
+        .quantity-input {
+          width: 50px;
+          height: 40px;
+          text-align: center;
+          border-radius: 20px;
+          border: 1px solid #ddd;
+          background: #f0f8ff;
+        }
+      }
+    }
+  
+    .actions {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 30px;
+  
+      .btn-orange {
+        flex: 1;
+        margin: 0 5px;
+        background-color: #f57224;
+        border: none;
+        padding: 15px 0;
+        color: white;
+        font-weight: bold;
+        border-radius: 3px;
+        cursor: pointer;
+        box-shadow: 0 4px 8px rgba(245, 114, 36, 0.4);
+        transition: background-color 0.3s;
+  
+        &:hover {
+          background-color: #e9651e;
+        }
+      }
+    }
+  
+    h2 {
+      font-weight: bold;
+    }
+  }
+  h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 600;
+  
+      .required {
+        color: red;
+      }
+    }
+  
+    input {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+  }
+  
+  .name-fields {
+    display: flex;
+    gap: 10px;
+  
+    input {
+      flex: 1;
+    }
+  }
+  
+  button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+  
+    &:hover {
+      background-color: #0056b3;
+    }
+  }
+  
