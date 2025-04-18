@@ -6,6 +6,9 @@ import { AdminComponent } from './components/admin/admin.component';
 import { ProductComponent } from './components/product/product.component';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 import { DemandeDevisComponent } from './components/demande-devis/demande-devis.component';
+import { SigninComponent } from './components/signin/signin.component';
+import { SignupComponent } from './components/signup/signup.component';
+
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -15,7 +18,10 @@ const routes: Routes = [
   { path: '', component: ProductComponent },
   { path: 'product-detail/:id', component: ProductDetailComponent },
   { path: 'demande-devis', component: DemandeDevisComponent },
-  // Ajoute ici d'autres routes si besoin
+  { path: 'signin', component: SigninComponent },
+  { path: 'signup', component: SignupComponent },
+
+
 ];
 
 @NgModule({
