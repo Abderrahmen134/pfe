@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Product } from 'src/app/models/model';
+import { ProductStorageService } from 'src/app/services/product-storage.service';
 
 @Component({
   selector: 'app-demande-devis',
@@ -7,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DemandeDevisComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private productStorageService: ProductStorageService) {}
+  product: Product | null = null;
   ngOnInit(): void {
+    this.product = this.productStorageService.getProduct(); // Récupère le produit du service ou localStorage
   }
 
 }

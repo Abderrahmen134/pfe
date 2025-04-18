@@ -11,9 +11,9 @@
   
       <div class="product-item">
         <span class="remove">✖</span>
-        <img src="assets/images/gsan-tpv-311.jpg" alt="GSAN TPV 311" class="product-image" />
-        <span class="product-title">GSAN TPV 311</span>
-        <input type="number" min="1" value="1" class="quantity-input" />
+        <img [src]="product?.image" alt="{{product?.name}}" class="product-image" />
+        <span class="product-title">{{ product?.name }}</span>
+        <input type="number" min="1" [value]="product?.quantity" class="quantity-input" />
       </div>
     </div>
   

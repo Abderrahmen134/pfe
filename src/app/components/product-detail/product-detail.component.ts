@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router'; // ✅ tu avais oublié Router
 import { Product } from 'src/app/models/model';
-
-import { CartService } from 'src/app/services/cart.service';
+import { ProductStorageService } from 'src/app/services/product-storage.service';
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
@@ -24,7 +23,7 @@ export class ProductDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router, // ✅ Ajouté pour la navigation
     private productService: ProductService,
-    private cartService: CartService
+    private productStorageService: ProductStorageService
   ) {}
 
   ngOnInit(): void {
@@ -35,7 +34,7 @@ export class ProductDetailComponent implements OnInit {
   }
 
   addstore(): void {
-    this.cartService.setProduct(this.product); // ✅ Correction : this.product au lieu de product
+    this.productStorageService.setProduct(this.product);
     this.router.navigate(['/demande-devis']); // ✅ Navigation vers la page demande-devis
   }
 }
