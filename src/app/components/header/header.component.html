@@ -1,6 +1,6 @@
 <header class="header">
     <div class="left">
-      <img src="assets/logo.png" alt="Logo" class="logo" />
+      <img src="assets/logo.png" alt="Logo" class="logo" routerLink="" routerLinkActive="active" />
       <nav class="nav">
         <a href="#">Business Types</a>
         <a routerLink="/product" routerLinkActive="active">Products</a>
@@ -9,19 +9,11 @@
     </div>
   
     <div class="right">
-      <a href="#">Sign In</a>
-      <a href="#">Support</a>
-  
-      <!-- Icône de recherche -->
-      <a href="#" class="icon">
-        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M10,2A8,8,0,1,0,18,10a8,8,0,0,0-8-8Zm0,14A6,6,0,1,1,16,10,6,6,0,0,1,10,16Z"/>
-          <path d="M21.71,20.29l-4.1-4.1A9,9,0,1,0,20,19.17l4.1,4.1a1,1,0,0,0,1.41-1.41Z"/>
-        </svg>
-      </a>
+      <a routerLink="/signin" routerLinkActive="active">Sign In</a>
+      <a routerLink="/signup" routerLinkActive="active">Sign Up</a>
   
       <!-- Icône panier -->
-      <a href="#" class="icon">
+      <a href="#" class="icon" routerLink="/demande-devis" routerLinkActive="active">
         <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
           <path d="M7,18a2,2,0,1,0,2,2A2,2,0,0,0,7,18Zm10,0a2,2,0,1,0,2,2A2,2,0,0,0,17,18ZM7.33,13H17.6a1,1,0,0,0,1-.76l2-7A1,1,0,0,0,19.6,4H6.21L5.27,1.52A1,1,0,0,0,4.36,1H1A1,1,0,0,0,1,3H3.28l3.6,9.59L5.25,15.29A1,1,0,0,0,6,17H19a1,1,0,0,0,0-2H7.33Z"/>
         </svg>
