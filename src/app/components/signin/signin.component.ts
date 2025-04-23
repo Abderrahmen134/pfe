@@ -1,33 +1,40 @@
 import { Component } from '@angular/core';
-import { LayoutService } from 'src/app/layout/service/app.layout.service';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
-    selector: 'app-signin',
-    templateUrl: './signin.component.html',
-    styles: [`
-        :host ::ng-deep .p-password input {
-            width: 100%;
-            padding:1rem;
-        }
-
-        :host ::ng-deep .pi-eye{
-            transform:scale(1.6);
-            margin-right: 1rem;
-            color: black !important;
-        }
-
-        :host ::ng-deep .pi-eye-slash{
-            transform:scale(1.6);
-            margin-right: 1rem;
-            color: black !important;
-        }
-    `]
+  selector: 'app-signin',
+  templateUrl: './signin.component.html',
+  styleUrls: ['./signin.component.scss']
 })
 export class SigninComponent {
+  email: string = '';
+  password: string = '';
 
-    valCheck: string[] = ['remember'];
+  constructor(private http: HttpClient, private router: Router) {}
 
-    password!: string;
+  onLogin() {
+    const payload = {
+      email: this.email,
+      mot_de_passe: this.password
+    };
 
-    constructor(public layoutService: LayoutService) { }
+    this.http.post<any>('http://127.0.0.1:8000/api/login', payload)
+      .subscribe({
+        next: (res) => {
+          console.log('Connexion réussie', res);
+
+          // Sauvegarder les infos du client et le token
+          localStorage.setItem('client', JSON.stringify(res.client));
+          localStorage.setItem('token', res.token);
+
+          // Redirection vers une autre page (ex : dashboard ou home)
+          this.router.navigate(['/']);
+        },
+        error: (err) => {
+          console.error('Erreur de connexion', err);
+          alert("Échec de la connexion. Veuillez vérifier vos identifiants.");
+        }
+      });
+  }
 }

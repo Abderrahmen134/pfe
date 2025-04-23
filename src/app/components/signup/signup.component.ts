@@ -55,6 +55,13 @@ export class SignupComponent {
         .subscribe({
           next: (res) => {
             console.log('Inscription réussie', res);
+             // ✅ Vider les champs
+          this.form.reset();
+
+          // 📝 Optionnel : réinitialiser le champ 'terms' à false
+          this.form.patchValue({ terms: false });
+
+          // 🔄 Tu peux aussi rediriger ici si besoin
             // par exemple rediriger vers la page de connexion
           },
           error: (err) => {
