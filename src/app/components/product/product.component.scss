@@ -27,6 +27,22 @@
     border-radius: 8px;
     margin-bottom: 12px;
   }
+  .add-button {
+    top: 10px;
+    right: 10px;
+    border-radius: 4px; // carré (ou 0 si tu veux vraiment sans coins arrondis)
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+  }
+  
+
 
   h3 {
     margin: 12px 0 8px;

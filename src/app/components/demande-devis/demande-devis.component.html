@@ -1,20 +1,23 @@
 <div class="container">
     <div class="header">
-        <button class="btn-orange">Retour</button>
+        <button class="btn-orange" routerLink="/product" routerLinkActive="active">Retour</button>
     </div>
   
     <div class="product-list">
       <div class="product-header">
         <span>Panier</span>
-        <span>Quantité</span>
       </div>
   
-      <div class="product-item">
-        <span class="remove">✖</span>
-        <img [src]="product?.image" alt="{{product?.name}}" class="product-image" />
-        <span class="product-title">{{ product?.name }}</span>
-        <input type="number" min="1" [value]="product?.quantity" class="quantity-input" />
+      <div class="product-grid">
+        <div class="product-item" *ngFor="let product of selectedProducts">
+            <span class="remove" (click)="removeProduct(product)">✖</span>
+          <img [src]="product.image" alt="{{product.name}}" class="product-image" />
+          <span class="product-title">{{ product.name }}</span>
+          <input type="number" min="1" [value]="product.quantity || 1" class="quantity-input" />
+        </div>
       </div>
+      
+      
     </div>
   
     <h2>Envoyer la demande</h2>
