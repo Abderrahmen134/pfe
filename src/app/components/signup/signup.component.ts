@@ -14,7 +14,7 @@ export class SignupComponent {
   constructor(private fb: FormBuilder,    private http: HttpClient      // ← injection
   ) {
     this.form = this.fb.group({
-      prénom: ['', Validators.required],
+      prenom: ['', Validators.required],
       nom: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       mot_de_passe: ['', Validators.required],
@@ -41,7 +41,7 @@ export class SignupComponent {
     if (this.form.valid) {
       // 1️⃣ Construis le payload avec les clefs exactes
       const payload = {
-        "prénom":       this.form.value.prénom,
+        "prenom":       this.form.value.prenom,
         "nom":          this.form.value.nom,
         "email":        this.form.value.email,
         "mot_de_passe": this.form.value.mot_de_passe,

@@ -1,15 +1,28 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.scss']
 })
-export class AdminComponent implements OnInit {
+export class AdminComponent {
+  notifications = {
+    devis: 2,
+    confirmation: 1,
+    confirme: 4,
+    livraison: 3,
+    livre: 0,
+    dashboard: 0,
+    produits: 5,
+    clients: 2,
+    admins: 1
+  };
 
-  constructor() { }
-
-  ngOnInit(): void {
+  get totalNotifications(): number {
+    return this.notifications.devis + 
+           this.notifications.confirmation +
+           this.notifications.confirme +
+           this.notifications.livraison +
+           this.notifications.livre;
   }
-
 }

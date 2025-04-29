@@ -8,6 +8,8 @@ import { ProductDetailComponent } from './components/product-detail/product-deta
 import { DemandeDevisComponent } from './components/demande-devis/demande-devis.component';
 import { SigninComponent } from './components/signin/signin.component';
 import { SignupComponent } from './components/signup/signup.component';
+import { AdminUsersComponent } from './components/admin-users/admin-users.component';
+import { AdminProductsComponent } from './components/admin-products/admin-products.component';
 
 
 const routes: Routes = [
@@ -20,7 +22,9 @@ const routes: Routes = [
   { path: 'demande-devis', component: DemandeDevisComponent },
   { path: 'signin', component: SigninComponent },
   { path: 'signup', component: SignupComponent },
-
+  { path: 'admin-users', component: AdminUsersComponent },
+  { path: 'admin-products', component: AdminProductsComponent },
+  
 
 ];
 

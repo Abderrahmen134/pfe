@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router'; // ✅ tu avais oublié Router
 import { Product } from 'src/app/models/model';
+import { AuthService } from 'src/app/services/auth.service';
 import { ProductStorageService } from 'src/app/services/product-storage.service';
 import { ProductService } from 'src/app/services/product.service';
 
@@ -23,7 +24,8 @@ export class ProductDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router, // ✅ Ajouté pour la navigation
     private productService: ProductService,
-    private productStorageService: ProductStorageService
+    private productStorageService: ProductStorageService,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
@@ -34,7 +36,18 @@ export class ProductDetailComponent implements OnInit {
   }
 
   addstore(): void {
-    this.productStorageService.setProduct(this.product);
+    
+      if (!this.authService.isLoggedIn()) {
+        // Optionnel : Afficher un message ou une alerte
+        alert('Veuillez vous connecter pour faire une demande de devis.');
+        this.router.navigate(['/signin']);
+      } else {
+        // 👇 Place ici la logique pour enregistrer la demande de devis
+        console.log('Demande de devis enregistrée !');
+        this.productStorageService.setProduct(this.product);
     this.router.navigate(['/demande-devis']); // ✅ Navigation vers la page demande-devis
+      }
+    }
+    
   }
-}
+

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProductService } from '../../services/product.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 
 
@@ -15,6 +16,7 @@ export class ProductComponent implements OnInit {
   constructor(
     private router: Router,
     private productService: ProductService,
+    private authService: AuthService
     
   ) {}
 
@@ -32,24 +34,30 @@ export class ProductComponent implements OnInit {
     this.router.navigate(['/product-detail', productId]);
   }
   addToCart(product: any): void {
-    const stored = localStorage.getItem('selectedProduct');
-    let products: any[] = [];
   
-    try {
-      const parsed = stored ? JSON.parse(stored) : [];
-      products = Array.isArray(parsed) ? parsed : [parsed]; // 👉 assure qu’on a un tableau
-    } catch (e) {
-      products = [];
-    }
-  
-    const exists = products.find((p: any) => p.id === product.id);
-    if (!exists) {
-      product.quantity = 1;
-      products.push(product);
-      localStorage.setItem('selectedProduct', JSON.stringify(products));
+    if (!this.authService.isLoggedIn()) {
+      this.router.navigate(['/signin']);
+    } else {
+      // logique pour ajouter le produit
+      console.log('Produit ajouté');
+      const stored = localStorage.getItem('selectedProduct');
+      let products: any[] = [];
+    
+      try {
+        const parsed = stored ? JSON.parse(stored) : [];
+        products = Array.isArray(parsed) ? parsed : [parsed]; // 👉 assure qu’on a un tableau
+      } catch (e) {
+        products = [];
+      }
+    
+      const exists = products.find((p: any) => p.id === product.id);
+      if (!exists) {
+        product.quantity = 1;
+        products.push(product);
+        localStorage.setItem('selectedProduct', JSON.stringify(products));
+      }
     }
   }
-  
   
 
 

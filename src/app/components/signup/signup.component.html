@@ -6,12 +6,12 @@
       <p>Inscrivez-vous rapidement et gratuitement.</p>
       <form [formGroup]="form" (ngSubmit)="onSubmit()">
 
-        <!-- Prénom -->
+        <!-- Prenom -->
         <div class="form-group">
-          <label for="prénom">Prénom</label>
-          <input id="prénom" formControlName="prénom" class="input-field" type="text">
-          <div *ngIf="form.get('prénom')?.invalid && form.get('prénom')?.touched" class="error">
-            Le prénom est requis.
+          <label for="prenom">Prenom</label>
+          <input id="prenom" formControlName="prenom" class="input-field" type="text">
+          <div *ngIf="form.get('prenom')?.invalid && form.get('prenom')?.touched" class="error">
+            Le prenom est requis.
           </div>
         </div>
   

@@ -20,6 +20,13 @@ import { ButtonModule } from 'primeng/button';
 import { MessagesModule } from 'primeng/messages';
 import { CommonModule } from '@angular/common';
 import { CheckboxModule } from 'primeng/checkbox';
+import { InputNumberModule } from 'primeng/inputnumber';
+import { DialogModule } from 'primeng/dialog';
+import { TableModule } from 'primeng/table';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AdminUsersComponent } from './components/admin-users/admin-users.component';
+import { AdminProductsComponent } from './components/admin-products/admin-products.component';
+
 
 
 @NgModule({
@@ -35,6 +42,8 @@ import { CheckboxModule } from 'primeng/checkbox';
     DemandeDevisComponent,
     SignupComponent,
     SigninComponent,
+    AdminUsersComponent,
+    AdminProductsComponent,
    
 
   ],
@@ -56,6 +65,12 @@ import { CheckboxModule } from 'primeng/checkbox';
     PasswordModule,
     MessagesModule,
     ButtonModule,
+        // PrimeNG
+    TableModule,
+    DialogModule,
+    ButtonModule,
+    InputNumberModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

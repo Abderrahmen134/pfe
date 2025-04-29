@@ -1,15 +1,11 @@
+// auth.service.ts
 import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  isAuthenticated(): boolean {
-    return !!localStorage.getItem('client_token');
+  isLoggedIn(): boolean {
+    return !!localStorage.getItem('token'); // ou 'api_token'
   }
-
-
-  constructor() {
-    
-   }
 }

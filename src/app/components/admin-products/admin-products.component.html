@@ -1,0 +1,126 @@
+<div class="admin-container">
+    <!-- Sidebar -->
+   <!-- Sidebar -->
+  <aside class="sidebar">
+    <h2><img src="assets/images/ASM.png" class="logo-icon"></h2>
+    <nav>
+      <ul>
+        <li>
+          <a routerLink="/admin"routerLinkActive="active">
+            <img src="assets/images/home.png" class="menu-icon"> 
+            Acceuil
+            <div class="notification-badge" *ngIf="totalNotifications > 0">
+              {{ totalNotifications }}
+            </div>
+          </a>
+        </li>
+        <li>
+          <a routerLink="admin/Dashboard">
+            <img src="assets/images/dashboard.png" class="menu-icon"> 
+            Dashboard
+            <div class="notification-badge" *ngIf="notifications.dashboard > 0">
+              {{ notifications.dashboard }}
+            </div>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/admin/Gestion_des_produits">
+            <img src="assets/images/box.png" class="menu-icon"> 
+            Gestion des Produits
+            <div class="notification-badge" *ngIf="notifications.produits > 0">
+              {{ notifications.produits }}
+            </div>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/admin/Gestion_des_clients">
+            <img src="assets/images/client.png" class="menu-icon"> 
+            Gestion des Clients
+            <div class="notification-badge" *ngIf="notifications.clients > 0">
+              {{ notifications.clients }}
+            </div>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/admin/Gestion_des_Admins">
+            <img src="assets/images/admin.png" class="menu-icon"> 
+            Gestion des Admins
+            <div class="notification-badge" *ngIf="notifications.admins > 0">
+              {{ notifications.admins }}
+            </div>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/Déconnexion">
+            <img src="assets/images/logout.png" class="menu-icon"> 
+            Déconnexion
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </aside>
+
+  
+    <!-- Main content -->
+    <main class="main-content">
+      <header class="admin-header">
+        <h1>Welcome to Admin Panel</h1>
+      </header>
+  
+    
+      <p-button label="New" icon="pi pi-plus" (click)="openNew()" class="mb-2"></p-button>
+
+<p-table [value]="products" dataKey="id">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <th>Image</th>
+      <th>Actions</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-product>
+    <tr>
+      <td>{{product.name}}</td>
+      <td>{{product.description}}</td>
+      <td>{{product.price | currency}}</td>
+      <td>{{product.quantity}}</td>
+      <td><img [src]="product.image" alt="image" width="50"></td>
+      <td>
+        <button pButton icon="pi pi-pencil" class="p-button-rounded p-button-warning" (click)="editProduct(product)"></button>
+        <button pButton icon="pi pi-trash" class="p-button-rounded p-button-danger" (click)="deleteProduct(product)"></button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+
+<p-dialog header="Product" [(visible)]="productDialog" [modal]="true" [style]="{width: '450px'}" (onHide)="hideDialog()">
+  <form [formGroup]="productForm">
+    <div class="field">
+      <label>Name</label>
+      <input pInputText formControlName="name" />
+    </div>
+    <div class="field">
+      <label>Description</label>
+      <input pInputText formControlName="description" />
+    </div>
+    <div class="field">
+      <label>Price</label>
+      <input type="number" pInputText formControlName="price" />
+    </div>
+    <div class="field">
+      <label>Quantity</label>
+      <input type="number" pInputText formControlName="quantity" />
+    </div>
+    <div class="field">
+      <label>Image URL</label>
+      <input pInputText formControlName="image" />
+    </div>
+  </form>
+  <ng-template pTemplate="footer">
+    <button pButton label="Cancel" icon="pi pi-times" (click)="hideDialog()"></button>
+    <button pButton label="Save" icon="pi pi-check" (click)="saveProduct()" [disabled]="productForm.invalid"></button>
+  </ng-template>
+</p-dialog>

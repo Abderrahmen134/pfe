@@ -1,24 +1,77 @@
-<header class="header">
-    <div class="left">
-      <img src="assets/logo.png" alt="Logo" class="logo" routerLink="" routerLinkActive="active" />
-      <nav class="nav">
-        <a href="#">Business Types</a>
-        <a routerLink="/product" routerLinkActive="active">Products</a>
-        <a href="#">Pricing</a>
-      </nav>
-    </div>
+<header *ngIf="!isAdminRoute" class="header" [class.scrolled]="scrolled">
+  <div class="left">
+    <img
+      src="assets/logo.png"
+      alt="Logo"
+      class="logo"
+      routerLink="/"
+      routerLinkActive="active"
+    />
+
+    <nav class="nav">
+      <div class="nav-item dropdown">
+        <a class="dropbtn" href="javascript:void(0)">
+          Business Types 
+        </a>
+        <div class="dropdown-menu">
+          <a routerLink="/Beauty" routerLinkActive="active">
+            Beauty
+          </a>
+          <a routerLink="/Clean" routerLinkActive="active">
+            Clean
+          </a>
+          <a routerLink="/Location" routerLinkActive="active">
+            Location
+          </a>
+        
+          <a routerLink="/Magasin" routerLinkActive="active">
+            Magasin
+          </a>
+          <a routerLink="/Mode" routerLinkActive="active">
+            Mode
+          </a>
+          <a routerLink="/Parapharmacie" routerLinkActive="active">
+            Parapharmacie
+          </a>
   
-    <div class="right">
-      <a routerLink="/signin" routerLinkActive="active">Sign In</a>
-      <a routerLink="/signup" routerLinkActive="active">Sign Up</a>
-  
-      <!-- Icône panier -->
-      <a href="#" class="icon" routerLink="/demande-devis" routerLinkActive="active">
-        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M7,18a2,2,0,1,0,2,2A2,2,0,0,0,7,18Zm10,0a2,2,0,1,0,2,2A2,2,0,0,0,17,18ZM7.33,13H17.6a1,1,0,0,0,1-.76l2-7A1,1,0,0,0,19.6,4H6.21L5.27,1.52A1,1,0,0,0,4.36,1H1A1,1,0,0,0,1,3H3.28l3.6,9.59L5.25,15.29A1,1,0,0,0,6,17H19a1,1,0,0,0,0-2H7.33Z"/>
-        </svg>
+          <a routerLink="/Pâtisserie" routerLinkActive="active">
+            Pâtisserie
+          </a>
+          <a routerLink="/Clean" routerLinkActive="active">
+            Clean
+          </a>
+          <a routerLink="/Restaurant" routerLinkActive="active">
+            Restaurant
+          </a>
+        <a routerLink="/Store" routerLinkActive="active">
+          Store
+        </a>
+        </div>
+      </div>
+
+      <a class="nav-item" routerLink="/product" routerLinkActive="active">
+        All Products
       </a>
-    </div>
-    
-  </header>
-  
+      <a class="nav-item" routerLink="/pricing" routerLinkActive="active">
+        Pricing
+      </a>
+    </nav>
+  </div>
+
+  <div class="right">
+    <a routerLink="/signin" routerLinkActive="active">Sign In</a>
+    <a routerLink="/signup" routerLinkActive="active">Sign Up</a>
+    <a
+      href="#"
+      class="icon"
+      routerLink="/demande-devis"
+      routerLinkActive="active"
+    >
+      <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+        <path
+          d="M7,18a2,2,0,1,0,2,2A2,2,0,0,0,7,18Zm10,0a2,2,0,1,0,2,2A2,2,0,0,0,17,18ZM7.33,13H17.6a1,1,0,0,0,1-.76l2-7A1,1,0,0,0,19.6,4H6.21L5.27,1.52A1,1,0,0,0,4.36,1H1A1,1,0,0,0,1,3H3.28l3.6,9.59L5.25,15.29A1,1,0,0,0,6,17H19a1,1,0,0,0,0-2H7.33Z"
+        />
+      </svg>
+    </a>
+  </div>
+</header>
