@@ -16,4 +16,18 @@ export interface Product {
     phone: string;
     gouvernorat: string;
   }
+  export interface ClientData {
+    prenom: string;
+    nom: string;
+    email: string;
+    telephone: string;
+    gouvernorat: string;
+    societe: string;
+  }
+  export interface CreateDevisResponse {
+    devis: {
+      id: number;
+      // autres champs si besoin
+    };
+  }
   

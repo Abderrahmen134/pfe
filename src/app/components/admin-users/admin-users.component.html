@@ -1,25 +1,94 @@
 <div class="users-container">
-    <h2>Liste des utilisateurs</h2>
+    <!-- Wrapper en flexbox -->
+    <div class="content-wrapper">
+      
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <h2><img src="assets/images/ASM.png" class="logo-icon"></h2>
+        <nav>
+          <ul>
+            <li>
+              <a routerLink="/admin" routerLinkActive="active">
+                <img src="assets/images/home.png" class="menu-icon"> 
+                Acceuil
+                <div class="notification-badge" *ngIf="totalNotifications > 0">
+                  {{ totalNotifications }}
+                </div>
+              </a>
+            </li>
+            <li>
+              <a routerLink="admin/Dashboard">
+                <img src="assets/images/dashboard.png" class="menu-icon"> 
+                Dashboard
+                <div class="notification-badge" *ngIf="notifications.dashboard > 0">
+                  {{ notifications.dashboard }}
+                </div>
+              </a>
+            </li>
+            <li>
+              <a routerLink="/admin-products" routerLinkActive="active">
+                <img src="assets/images/box.png" class="menu-icon"> 
+                Gestion des Produits
+                <div class="notification-badge" *ngIf="notifications.produits > 0">
+                  {{ notifications.produits }}
+                </div>
+              </a>
+            </li>
+            <li>
+              <a routerLink="/admin-users" routerLinkActive="active">
+                <img src="assets/images/client.png" class="menu-icon"> 
+                Gestion des Clients
+                <div class="notification-badge" *ngIf="notifications.clients > 0">
+                  {{ notifications.clients }}
+                </div>
+              </a>
+            </li>
+            <li>
+              <a routerLink="/admin/Gestion_des_Admins">
+                <img src="assets/images/admin.png" class="menu-icon"> 
+                Gestion des Admins
+                <div class="notification-badge" *ngIf="notifications.admins > 0">
+                  {{ notifications.admins }}
+                </div>
+              </a>
+            </li>
+            <li>
+              <a routerLink="" routerLinkActive="active">
+                <img src="assets/images/logout.png" class="menu-icon"> 
+                Déconnexion
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
   
-    <p-table [value]="users" dataKey="id">
-      <ng-template pTemplate="header">
-        <tr>
-          <th>Prenom</th>
-          <th>Nom</th>
-          <th>Email</th>
-          <th>Téléphone</th>
-          <th>Gouvernorat</th>
-        </tr>
-      </ng-template>
-      <ng-template pTemplate="body" let-user>
-        <tr>
-          <td>{{ user.prenom }}</td>
-          <td>{{ user.nom }}</td>
-          <td>{{ user.email }}</td>
-          <td>{{ user.phone }}</td>
-          <td>{{ user.gouvernorat }}</td>
-        </tr>
-      </ng-template>
-    </p-table>
+       <!-- Main content -->
+    <main class="main-content">
+        <header class="admin-header">
+          <h1>Liste des utilisateurs</h1>
+        </header>
+      
+        <p-table [value]="users" dataKey="id">
+          <ng-template pTemplate="header">
+            <tr>
+              <th>Prenom</th>
+              <th>Nom</th>
+              <th>Email</th>
+              <th>Téléphone</th>
+              <th>Gouvernorat</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-user>
+            <tr>
+              <td>{{ user.prenom }}</td>
+              <td>{{ user.nom }}</td>
+              <td>{{ user.email }}</td>
+              <td>{{ user.phone }}</td>
+              <td>{{ user.gouvernorat }}</td>
+            </tr>
+          </ng-template>
+        </p-table>
+    </main>
+    </div>
   </div>
   

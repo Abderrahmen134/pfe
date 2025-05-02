@@ -1,6 +1,5 @@
 <div class="admin-container">
     <!-- Sidebar -->
-   <!-- Sidebar -->
   <aside class="sidebar">
     <h2><img src="assets/images/ASM.png" class="logo-icon"></h2>
     <nav>
@@ -24,7 +23,7 @@
           </a>
         </li>
         <li>
-          <a routerLink="/admin/Gestion_des_produits">
+          <a  routerLink="/admin-products" routerLinkActive="active">
             <img src="assets/images/box.png" class="menu-icon"> 
             Gestion des Produits
             <div class="notification-badge" *ngIf="notifications.produits > 0">
@@ -33,7 +32,7 @@
           </a>
         </li>
         <li>
-          <a routerLink="/admin/Gestion_des_clients">
+          <a  routerLink="/admin-users" routerLinkActive="active">
             <img src="assets/images/client.png" class="menu-icon"> 
             Gestion des Clients
             <div class="notification-badge" *ngIf="notifications.clients > 0">
@@ -51,7 +50,7 @@
           </a>
         </li>
         <li>
-          <a routerLink="/Déconnexion">
+          <a routerLink=""routerLinkActive="active">
             <img src="assets/images/logout.png" class="menu-icon"> 
             Déconnexion
           </a>
@@ -60,11 +59,12 @@
     </nav>
   </aside>
 
+
   
     <!-- Main content -->
     <main class="main-content">
       <header class="admin-header">
-        <h1>Welcome to Admin Panel</h1>
+        <h1>Liste des products</h1>
       </header>
   
     

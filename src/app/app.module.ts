@@ -26,6 +26,7 @@ import { TableModule } from 'primeng/table';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AdminUsersComponent } from './components/admin-users/admin-users.component';
 import { AdminProductsComponent } from './components/admin-products/admin-products.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 
 
@@ -44,6 +45,7 @@ import { AdminProductsComponent } from './components/admin-products/admin-produc
     SigninComponent,
     AdminUsersComponent,
     AdminProductsComponent,
+    SidebarComponent,
    
 
   ],

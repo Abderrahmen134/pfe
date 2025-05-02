@@ -1,6 +1,5 @@
-<div class="admin-container">
-  <!-- Sidebar -->
-  <aside class="sidebar">
+<!-- Sidebar -->
+<aside class="sidebar">
     <h2><img src="assets/images/ASM.png" class="logo-icon"></h2>
     <nav>
       <ul>
@@ -50,7 +49,7 @@
           </a>
         </li>
         <li>
-          <a routerLink=""routerLinkActive="active">
+          <a routerLink="/Déconnexion">
             <img src="assets/images/logout.png" class="menu-icon"> 
             Déconnexion
           </a>
@@ -64,50 +63,3 @@
     <header class="admin-header">
       <h1>Welcome to Admin Panel</h1>
     </header>
-
-    <section class="admin-content">
-      <h2>Suivi des Commandes</h2>
-      <div class="status-cards">
-        <div class="status-card devis">
-          <div class="notification-badge" *ngIf="notifications.devis > 0">
-            {{ notifications.devis }}
-          </div>
-          <span>Demande de devis</span>
-          <img src="assets/images/estimate.png" class="status-icon">
-        </div>
-
-        <div class="status-card confirmation">
-          <div class="notification-badge" *ngIf="notifications.confirmation > 0">
-            {{ notifications.confirmation }}
-          </div>
-          <span>Commande en cours de confirmation</span>
-          <img src="assets/images/hour-glass.png" class="status-icon">
-        </div>
-
-        <div class="status-card confirme">
-          <div class="notification-badge" *ngIf="notifications.confirme > 0">
-            {{ notifications.confirme }}
-          </div>
-          <span>Commande confirmé</span>
-          <img src="assets/images/right.png" class="status-icon">
-        </div>
-
-        <div class="status-card livraison">
-          <div class="notification-badge" *ngIf="notifications.livraison > 0">
-            {{ notifications.livraison }}
-          </div>
-          <span>Commande en cours de livraison</span>
-          <img src="assets/images/shipped.png" class="status-icon">
-        </div>
-
-        <div class="status-card livre">
-          <div class="notification-badge" *ngIf="notifications.livre > 0">
-            {{ notifications.livre }}
-          </div>
-          <span>Commande livré</span>
-          <img src="assets/images/shippedY.png" class="status-icon">
-        </div>
-      </div>
-    </section>
-  </main>
-</div>
