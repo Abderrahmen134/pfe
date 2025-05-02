@@ -1,0 +1,26 @@
+<div class="devis-container">
+    <h2>Devis non traités</h2>
+  
+    <div *ngFor="let devis of devisNonTraites" class="devis-card">
+      <h3>Devis #{{ devis.id }} - {{ devis.client }}</h3>
+      <p>Date : {{ devis.date }} | Statut : <strong>{{ devis.statut }}</strong></p>
+  
+      <table>
+        <thead>
+          <tr>
+            <th>Modèle</th>
+            <th>Quantité</th>
+            <th *ngIf="devis.modeles[0]?.prix !== undefined">Prix</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let modele of devis.modeles">
+            <td>{{ modele.nom }}</td>
+            <td>{{ modele.quantite }}</td>
+            <td *ngIf="modele.prix !== undefined">{{ modele.prix }} TND</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
