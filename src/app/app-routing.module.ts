@@ -10,8 +10,10 @@ import { SigninComponent } from './components/signin/signin.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { AdminUsersComponent } from './components/admin-users/admin-users.component';
 import { AdminProductsComponent } from './components/admin-products/admin-products.component';
-
-
+import { DevisNonTraiteComponent } from './components/devis-non-traite/devis-non-traite.component';
+import { DevisTraiteComponent } from './components/devis-traite/devis-traite.component';
+import { StatutComponent } from './components/statut/statut.component';
+import { AdminDevisComponent } from './admin-devis/admin-devis.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'contact', component: ContactComponent },
@@ -24,8 +26,10 @@ const routes: Routes = [
   { path: 'signup', component: SignupComponent },
   { path: 'admin-users', component: AdminUsersComponent },
   { path: 'admin-products', component: AdminProductsComponent },
-  
-
+  {path: 'devis-non-traite', component: DevisNonTraiteComponent},
+  {path: 'devis-traite', component: DevisTraiteComponent},
+  {path: 'status', component: StatutComponent},
+  {path: 'admin-devis', component: AdminDevisComponent},
 ];
 
 @NgModule({

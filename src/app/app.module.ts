@@ -27,6 +27,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AdminUsersComponent } from './components/admin-users/admin-users.component';
 import { AdminProductsComponent } from './components/admin-products/admin-products.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { DevisNonTraiteComponent } from './components/devis-non-traite/devis-non-traite.component';
+import { DevisTraiteComponent } from './components/devis-traite/devis-traite.component';
+import { StatutComponent } from './components/statut/statut.component';
+import { AdminDevisComponent } from './admin-devis/admin-devis.component';
 
 
 
@@ -46,6 +50,10 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     AdminUsersComponent,
     AdminProductsComponent,
     SidebarComponent,
+    DevisNonTraiteComponent,
+    DevisTraiteComponent,
+    StatutComponent,
+    AdminDevisComponent,
    
 
   ],

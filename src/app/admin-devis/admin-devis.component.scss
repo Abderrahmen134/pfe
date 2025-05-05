@@ -1,0 +1,35 @@
+:host {
+    display: block;
+    padding: 1rem;
+  }
+  
+  .devis-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2rem;
+  }
+  .devis-table th,
+  .devis-table td {
+    border: 1px solid #ccc;
+    padding: 0.5rem;
+    text-align: left;
+  }
+  
+  .details {
+    margin-top: 1rem;
+  }
+  .ligne-table,
+  .ligne-table th,
+  .ligne-table td {
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+    padding: 0.5rem;
+  }
+  
+  .message {
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+  }
+  .message.success { background: #e0f7e9; color: #2e7d32; }
+  .message.error   { background: #fdecea; color: #c62828; }
