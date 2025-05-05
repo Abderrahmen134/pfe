@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin',
@@ -6,6 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./admin.component.scss']
 })
 export class AdminComponent {
+  constructor(private router: Router) {}
+
   notifications = {
     devis: 2,
     confirmation: 1,
@@ -24,5 +27,9 @@ export class AdminComponent {
            this.notifications.confirme +
            this.notifications.livraison +
            this.notifications.livre;
+  }
+  logout(): void {
+    localStorage.clear();
+    this.router.navigate(['']);
   }
 }

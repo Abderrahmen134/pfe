@@ -15,14 +15,14 @@ export interface LigneDevis {
 
 @Injectable({ providedIn: 'root' })
 export class LigneDevisService {
-  private apiUrl = 'http://votre-backend.test/api/ligne-devis';
+  private apiUrl = 'http://localhost:8000/api/ligne-devis';
 
   constructor(private http: HttpClient) {}
 
   // récupère toutes les lignes pour un devis donné
   getByDevis(idDevis: number): Observable<LigneDevis[]> {
     const params = new HttpParams().set('devis_id', idDevis.toString());
-    return this.http.get<LigneDevis[]>(this.apiUrl, { params });
+    return this.http.get<LigneDevis[]>(this.apiUrl+'/devis/'+idDevis);
   }
 
   // enregistre la remise (et met à jour côté back si nécessaire)

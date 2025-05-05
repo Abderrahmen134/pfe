@@ -65,7 +65,7 @@ export class DemandeDevisComponent implements OnInit {
     }
   
     const payloadDevis = {
-      société: this.clientData.societe,
+      societe: this.clientData.societe,
       id_client: idClient
     };
   

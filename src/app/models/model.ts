@@ -24,20 +24,13 @@ export interface Product {
     gouvernorat: string;
     societe: string;
   }
-  export interface CreateDevisResponse {
-    devis: {
-      id: number;
-      // autres champs si besoin
-    };
-    
-  }
+
   export interface Devis {
     id?: number;
     status: string;
     société: string;
     id_client: number;
-    created_at?: string;
-    updated_at?: string;
+    
   }
   export interface LigneDevis {
     id?: number;
