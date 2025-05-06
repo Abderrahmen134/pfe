@@ -34,14 +34,21 @@
     <table class="ligne-table">
       <thead>
         <tr>
-          <th>ID</th><th>Produit</th><th>Qté</th>
-          <th>Remise (%)</th><th>HT net</th><th>TVA (%)</th><th>TTC</th>
+          <th>ID</th>
+          <th>Produit</th>
+          <th>Prix unitaire</th>
+          <th>Qté</th>
+          <th>Remise (%)</th>
+          <th>HT net</th>
+          <th>TVA (%)</th>
+          <th>TTC</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let l of lignes">
           <td>{{ l.id }}</td>
-          <td>{{ l.id_product }}</td>
+          <td>{{ l.product?.name || 'Produit inconnu' }}</td>
+          <td>{{ l.product?.price | number:'1.2-2' }} €</td>
           <td>{{ l.quantite }}</td>
           <td>
             <input type="number" [(ngModel)]="l.remise"
@@ -54,3 +61,4 @@
       </tbody>
     </table>
   </div>
+  

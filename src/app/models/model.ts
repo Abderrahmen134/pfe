@@ -32,14 +32,14 @@ export interface Product {
     id_client: number;
     
   }
+  
   export interface LigneDevis {
-    id?: number;
-    id_devis: number;
+    id: number;
     id_product: number;
     quantite: number;
-    remise?: number;
+    remise: number;
     total_ht: number;
     tva: number;
     total_ttc: number;
+    product?: Product; // ✅ Ajouter cette ligne
   }
-  

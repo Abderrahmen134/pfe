@@ -1,0 +1,71 @@
+.devis-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .devis-table th, .devis-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .badge-en-traitement {
+    background-color: #d0e3ff;
+    color: #3178c6;
+    padding: 4px 8px;
+    border-radius: 5px;
+  }
+  
+  .badge-accepte {
+    background-color: #d4f4dd;
+    color: #2f9e44;
+    padding: 4px 8px;
+    border-radius: 5px;
+  }
+  
+  .badge-rejete {
+    background-color: #ffe3e3;
+    color: #d63333;
+    padding: 4px 8px;
+    border-radius: 5px;
+  }
+  
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .modal-content {
+    background: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    width: 500px;
+    position: relative;
+  }
+  
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 14px;
+    font-size: 22px;
+    cursor: pointer;
+  }
+  .ligne-devis-block {
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #f7f7f7;
+    border-left: 4px solid #007bff;
+    border-radius: 6px;
+  }
+  .ligne-devis-block p {
+    margin: 4px 0;
+  }
+  

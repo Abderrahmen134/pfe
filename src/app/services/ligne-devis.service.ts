@@ -2,16 +2,26 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+export interface Product {
+  id: number;
+  name: string;
+  description: string;
+  quantity: number;
+  price: number;
+  image: string;
+}
+
 export interface LigneDevis {
   id: number;
-  id_devis: number;
   id_product: number;
   quantite: number;
   remise: number;
   total_ht: number;
-  tva: number;       // pourcentage, ex. 19.6
+  tva: number;
   total_ttc: number;
+  product?: Product; // ✅ Ceci est nécessaire
 }
+
 
 @Injectable({ providedIn: 'root' })
 export class LigneDevisService {

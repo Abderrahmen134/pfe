@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Devis, DevisService } from '../services/devis.service';
-import { LigneDevis, LigneDevisService } from '../services/ligne-devis.service';
+import { Devis, DevisService } from '../../services/devis.service';
+import { LigneDevis, LigneDevisService } from '../../services/ligne-devis.service';
 
 @Component({
   selector: 'app-admin-devis',
@@ -13,7 +13,7 @@ export class AdminDevisComponent implements OnInit {
   lignes: LigneDevis[] = [];
   statuses = ['untraited', 'accepted', 'rejected'];
   message = { text: '', type: '' as 'success' | 'error' | '' };
-
+  
   constructor(
     private devisService: DevisService,
     private ligneService: LigneDevisService
@@ -21,6 +21,8 @@ export class AdminDevisComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadDevis();
+    
+    
   }
 
   loadDevis() {
@@ -80,4 +82,6 @@ export class AdminDevisComponent implements OnInit {
     this.message = { text, type };
     setTimeout(() => this.message = { text: '', type: '' }, 3000);
   }
+  
+  
 }

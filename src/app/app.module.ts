@@ -30,7 +30,8 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { DevisNonTraiteComponent } from './components/devis-non-traite/devis-non-traite.component';
 import { DevisTraiteComponent } from './components/devis-traite/devis-traite.component';
 import { StatutComponent } from './components/statut/statut.component';
-import { AdminDevisComponent } from './admin-devis/admin-devis.component';
+import { AdminDevisComponent } from './components/admin-devis/admin-devis.component';
+import { ClientDevisComponent } from './components/client-devis/client-devis.component';
 
 
 
@@ -54,6 +55,7 @@ import { AdminDevisComponent } from './admin-devis/admin-devis.component';
     DevisTraiteComponent,
     StatutComponent,
     AdminDevisComponent,
+    ClientDevisComponent,
    
 
   ],

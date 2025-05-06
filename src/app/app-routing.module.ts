@@ -13,7 +13,8 @@ import { AdminProductsComponent } from './components/admin-products/admin-produc
 import { DevisNonTraiteComponent } from './components/devis-non-traite/devis-non-traite.component';
 import { DevisTraiteComponent } from './components/devis-traite/devis-traite.component';
 import { StatutComponent } from './components/statut/statut.component';
-import { AdminDevisComponent } from './admin-devis/admin-devis.component';
+import { AdminDevisComponent } from './components/admin-devis/admin-devis.component';
+import { ClientDevisComponent } from './components/client-devis/client-devis.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'contact', component: ContactComponent },
@@ -30,6 +31,8 @@ const routes: Routes = [
   {path: 'devis-traite', component: DevisTraiteComponent},
   {path: 'status', component: StatutComponent},
   {path: 'admin-devis', component: AdminDevisComponent},
+  { path: 'client-devis', component: ClientDevisComponent }
+
 ];
 
 @NgModule({
