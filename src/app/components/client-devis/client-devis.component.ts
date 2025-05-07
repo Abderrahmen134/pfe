@@ -43,4 +43,19 @@ export class ClientDevisComponent implements OnInit {
   closeModal() {
     this.showModal = false;
   }
+  commander(devis: any): void {
+    // Simuler l'ajout à la liste des commandes en cours (peut être localStorage, ou une API)
+    let commandes = JSON.parse(localStorage.getItem('commandesEncours') || '[]');
+    commandes.push(devis);
+    localStorage.setItem('commandesEncours', JSON.stringify(commandes));
+  
+    // Fermer le modal
+    this.closeModal();
+  
+    // Afficher un message de succès
+    alert('Commande ajoutée avec succès !');
+  
+    // Optionnel : rediriger vers la page commande-encours
+    // this.router.navigate(['/commande-encours']);
+  }
 }

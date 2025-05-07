@@ -24,7 +24,11 @@ export class AdminDevisComponent implements OnInit {
     
     
   }
-
+  enregistrerModifications() {
+    console.log('Modifications enregistrées');
+    // Tu peux ajouter ici l'appel à un service pour sauvegarder les données
+  }
+  
   loadDevis() {
     this.devisService.getAll().subscribe({
       next: data => this.devisList = data,

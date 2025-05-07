@@ -32,6 +32,7 @@ import { DevisTraiteComponent } from './components/devis-traite/devis-traite.com
 import { StatutComponent } from './components/statut/statut.component';
 import { AdminDevisComponent } from './components/admin-devis/admin-devis.component';
 import { ClientDevisComponent } from './components/client-devis/client-devis.component';
+import { CommandeEncoursComponent } from './components/commande-encours/commande-encours.component';
 
 
 
@@ -56,6 +57,7 @@ import { ClientDevisComponent } from './components/client-devis/client-devis.com
     StatutComponent,
     AdminDevisComponent,
     ClientDevisComponent,
+    CommandeEncoursComponent,
    
 
   ],

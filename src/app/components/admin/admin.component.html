@@ -80,7 +80,7 @@
           <div class="notification-badge" *ngIf="notifications.confirmation > 0">
             {{ notifications.confirmation }}
           </div>
-          <span>Commande en cours de confirmation</span>
+          <a routerLink="/commande-encours"routerLinkActive="active">Commande en cours de confirmation</a>
           <img src="assets/images/hour-glass.png" class="status-icon">
         </div>
 
