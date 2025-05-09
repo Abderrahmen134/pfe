@@ -38,5 +38,9 @@ export class DevisService {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
  
+  CommandesDemandees(): Observable<{ success: boolean, data: Devis[] }> {
+    return this.http.get<{ success: boolean, data: Devis[] }>(`${this.apiUrl}/CommandesDemandees`);
+  }
+  
   
 }

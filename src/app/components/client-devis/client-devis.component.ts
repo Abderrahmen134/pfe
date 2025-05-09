@@ -54,6 +54,7 @@ export class ClientDevisComponent implements OnInit {
         console.log('Commande demandée avec succès', response);
         // Effectuer toute autre action après la commande, comme fermer le modal ou afficher un message de confirmation.
         this.closeModal();
+        this.loadDevis();
       },
       (error) => {
         console.error('Erreur lors de la demande de commande', error);

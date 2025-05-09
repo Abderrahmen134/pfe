@@ -3,16 +3,17 @@ import { LigneDevis } from 'src/app/models/model';
 import { Devis, DevisService } from 'src/app/services/devis.service';
 import { LigneDevisService } from 'src/app/services/ligne-devis.service';
 
+
 @Component({
   selector: 'app-admin-encours',
   templateUrl: './admin-encours.component.html',
   styleUrls: ['./admin-encours.component.scss']
 })
 export class AdminEncoursComponent implements OnInit {
- devisList: Devis[] = [];
+  devisList: Devis[] = [];
   selectedDevis: Devis | null = null;
   lignes: LigneDevis[] = [];
-  statuses = ['commande_validee', 'commande_refusee'];
+  statuses = ['untraited', 'accepted', 'rejected'];
   message = { text: '', type: '' as 'success' | 'error' | '' };
   
   constructor(
@@ -22,7 +23,7 @@ export class AdminEncoursComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadDevis();
-    
+    console.log('Devis List:', this.devisList);
     
   }
   enregistrerModifications() {
@@ -31,11 +32,15 @@ export class AdminEncoursComponent implements OnInit {
   }
   
   loadDevis() {
-    this.devisService.getAll().subscribe({
-      next: data => this.devisList = data,
+    this.devisService.CommandesDemandees().subscribe({
+      next: data => {
+        this.devisList = data.data; // ✔️ On récupère le tableau
+        console.log('Devis List chargée:', this.devisList);
+      },
       error: () => this.showMessage('Erreur chargement devis', 'error')
     });
   }
+  
   
   onSelectDevis(d: Devis) {
     this.selectedDevis = d;
@@ -88,5 +93,6 @@ export class AdminEncoursComponent implements OnInit {
     setTimeout(() => this.message = { text: '', type: '' }, 3000);
   }
   
-  
+
+
 }
