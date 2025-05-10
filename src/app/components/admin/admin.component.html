@@ -88,7 +88,7 @@
           <div class="notification-badge" *ngIf="notifications.confirme > 0">
             {{ notifications.confirme }}
           </div>
-          <span>Commande confirmé</span>
+          <a routerLink="/admin-confirme"routerLinkActive="active">Commande confirmé</a>
           <img src="assets/images/right.png" class="status-icon">
         </div>
 
@@ -96,7 +96,7 @@
           <div class="notification-badge" *ngIf="notifications.livraison > 0">
             {{ notifications.livraison }}
           </div>
-          <span>Commande en cours de livraison</span>
+          <a routerLink="/admin-encours-livraison"routerLinkActive="active">Commande en cours de livraison</a>
           <img src="assets/images/shipped.png" class="status-icon">
         </div>
 

@@ -19,6 +19,7 @@
       <td>
         <button (click)="confirmDelete(devis)">🗑️</button>
         <button (click)="onSelectDevis(devis)">Voir détails</button>
+        <button *ngIf="devis.status !== 'commande_validee'" (click)="onChangeStatus(devis, 'commande_validee')">✅ Accepter</button>
       </td>
     </tr>
   </tbody>

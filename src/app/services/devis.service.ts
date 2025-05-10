@@ -42,5 +42,9 @@ export class DevisService {
     return this.http.get<{ success: boolean, data: Devis[] }>(`${this.apiUrl}/CommandesDemandees`);
   }
   
+  commandeValidee(): Observable<Devis[]> {
+    return this.http.get<Devis[]>(`${this.apiUrl}/commandeValidee`);
+  }
+  
   
 }

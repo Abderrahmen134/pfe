@@ -33,6 +33,8 @@ import { StatutComponent } from './components/statut/statut.component';
 import { AdminDevisComponent } from './components/admin-devis/admin-devis.component';
 import { ClientDevisComponent } from './components/client-devis/client-devis.component';
 import { AdminEncoursComponent } from './components/admin-encours/admin-encours.component';
+import { AdminConfirmeComponent } from './components/admin-confirme/admin-confirme.component';
+import { AdminEncoursLivraisonComponent } from './components/admin-encours-livraison/admin-encours-livraison.component';
 
 
 
@@ -59,6 +61,8 @@ import { AdminEncoursComponent } from './components/admin-encours/admin-encours.
     AdminDevisComponent,
     ClientDevisComponent,
     AdminEncoursComponent,
+    AdminConfirmeComponent,
+    AdminEncoursLivraisonComponent,
   
    
 

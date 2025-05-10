@@ -16,6 +16,8 @@ import { StatutComponent } from './components/statut/statut.component';
 import { AdminDevisComponent } from './components/admin-devis/admin-devis.component';
 import { ClientDevisComponent } from './components/client-devis/client-devis.component';
 import { AdminEncoursComponent } from './components/admin-encours/admin-encours.component';
+import { AdminConfirmeComponent } from './components/admin-confirme/admin-confirme.component';
+import { AdminEncoursLivraisonComponent } from './components/admin-encours-livraison/admin-encours-livraison.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -35,6 +37,8 @@ const routes: Routes = [
   {path: 'admin-devis', component: AdminDevisComponent},
   { path: 'client-devis', component: ClientDevisComponent },
   {path: 'admin-encours', component: AdminEncoursComponent },
+  {path: 'admin-confirme', component:  AdminConfirmeComponent },
+  {path: 'admin-encours-livraison', component:  AdminEncoursLivraisonComponent },
  
 
 ];
