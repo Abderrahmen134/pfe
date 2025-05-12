@@ -48,6 +48,7 @@ export class HeaderComponent implements OnDestroy {
   logout() {
     localStorage.removeItem('client');
     localStorage.removeItem('token');
+    localStorage.removeItem('role');
     this.isLoggedIn = false;
     this.router.navigate(['/signin']);
   }

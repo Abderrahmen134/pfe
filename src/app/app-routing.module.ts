@@ -18,6 +18,8 @@ import { ClientDevisComponent } from './components/client-devis/client-devis.com
 import { AdminEncoursComponent } from './components/admin-encours/admin-encours.component';
 import { AdminConfirmeComponent } from './components/admin-confirme/admin-confirme.component';
 import { AdminEncoursLivraisonComponent } from './components/admin-encours-livraison/admin-encours-livraison.component';
+import { ClientGuard } from './guards/client.guard';
+import { AdminGuard } from './guards/admin.guard';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -29,18 +31,16 @@ const routes: Routes = [
   { path: 'demande-devis', component: DemandeDevisComponent },
   { path: 'signin', component: SigninComponent },
   { path: 'signup', component: SignupComponent },
-  { path: 'admin-users', component: AdminUsersComponent },
-  { path: 'admin-products', component: AdminProductsComponent },
-  {path: 'devis-non-traite', component: DevisNonTraiteComponent},
-  {path: 'devis-traite', component: DevisTraiteComponent},
-  {path: 'status', component: StatutComponent},
-  {path: 'admin-devis', component: AdminDevisComponent},
-  { path: 'client-devis', component: ClientDevisComponent },
-  {path: 'admin-encours', component: AdminEncoursComponent },
-  {path: 'admin-confirme', component:  AdminConfirmeComponent },
-  {path: 'admin-encours-livraison', component:  AdminEncoursLivraisonComponent },
- 
-
+  { path: 'admin-users', component: AdminUsersComponent, canActivate: [AdminGuard] },
+  { path: 'admin-products', component: AdminProductsComponent, canActivate: [AdminGuard]  },
+  {path: 'devis-non-traite', component: DevisNonTraiteComponent, canActivate: [AdminGuard] },
+  {path: 'devis-traite', component: DevisTraiteComponent, canActivate: [AdminGuard]},
+ // {path: 'status', component: StatutComponent},
+  {path: 'admin-devis', component: AdminDevisComponent, canActivate: [AdminGuard] },
+  { path: 'client-devis', component: ClientDevisComponent, canActivate: [ClientGuard] },
+  {path: 'admin-encours', component: AdminEncoursComponent, canActivate: [AdminGuard]  },
+  {path: 'admin-confirme', component:  AdminConfirmeComponent, canActivate: [AdminGuard] },
+  {path: 'admin-encours-livraison', component:  AdminEncoursLivraisonComponent, canActivate: [AdminGuard] },
 ];
 
 @NgModule({

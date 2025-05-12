@@ -45,8 +45,11 @@ export class AdminComponent implements OnInit {
            this.notifications.livre;
   }
 
-  logout(): void {
-    localStorage.clear();
-    this.router.navigate(['']);
+  logout() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('role');
+    localStorage.removeItem('admin'); // si tu stockes aussi l'admin/client
+  
+    this.router.navigate(['/']); // Redirige vers la page de connexion
   }
 }
