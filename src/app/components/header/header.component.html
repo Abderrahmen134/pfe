@@ -52,15 +52,28 @@
       <a class="nav-item" routerLink="/product" routerLinkActive="active">
         All Products
       </a>
-      <a class="nav-item" routerLink="/client-devis" routerLinkActive="active">
-        Devis
-      </a>
+      <a
+  *ngIf="isLoggedIn"
+  class="nav-item"
+  routerLink="/client-devis"
+  routerLinkActive="active"
+>
+  Devis
+</a>
+
     </nav>
   </div>
 
   <div class="right">
-    <a routerLink="/signin" routerLinkActive="active">Sign In</a>
-    <a routerLink="/signup" routerLinkActive="active">Sign Up</a>
+    <ng-container *ngIf="!isLoggedIn">
+      <a routerLink="/signin" routerLinkActive="active">Sign In</a>
+      <a routerLink="/signup" routerLinkActive="active">Sign Up</a>
+    </ng-container>
+    
+    <ng-container *ngIf="isLoggedIn">
+      <a href="#" (click)="logout()">Déconnexion</a>
+    </ng-container>
+    
     <a
       href="#"
       class="icon"

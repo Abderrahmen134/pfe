@@ -1,52 +1,57 @@
-<br><br><br><br><br>
-<h2>Mes Devis</h2>
+<br><br><br>
+<h2 class="page-title">🧾 Mes Devis</h2>
 
-<table class="devis-table">
-    
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Société</th>
-      <th>Statut</th>
-      <th>Action</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let d of devisList">
-      <td>{{ d.reference }}</td>
-      <td>{{ d.societe }}</td>
-      <td>
-        <span [ngClass]="{
-          'badge-en-traitement': d.status === 'en traitement',
-          'badge-accepte': d.status === 'accepté',
-          'badge-rejete': d.status === 'rejeté'
-        }">{{ d.status }}</span>
-      </td>
-      <td>
-        <button class="btn btn-primary" (click)="openModal(d)">👁 Voir détails</button>
-      </td>
-    </tr>
-  </tbody>
-</table>
+<div class="table-container">
+  <table class="devis-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Société</th>
+        <th>Statut</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let d of devisList">
+        <td>{{ d.reference }}</td>
+        <td>{{ d.societe }}</td>
+        <td>
+          <span class="status-badge" [ngClass]="{
+            'badge-en-traitement': d.status === 'en traitement',
+            'badge-accepte': d.status === 'accepté',
+            'badge-rejete': d.status === 'rejeté'
+          }">
+            {{ d.status }}
+          </span>
+        </td>
+        <td>
+          <button class="btn-view" (click)="openModal(d)">👁 Voir détails</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 <!-- MODAL -->
 <div class="modal" *ngIf="showModal">
   <div class="modal-content">
     <span class="close" (click)="closeModal()">×</span>
+    <h3>Détails du devis</h3>
     <div *ngFor="let l of selectedDevis.lignes" class="ligne-devis-block">
-        <p><strong>ID:</strong> {{ l.id }}</p>
-        <p><strong>Produit:</strong> {{ l.product?.name || 'Produit inconnu' }}</p>
-        <p><strong>Prix unitaire:</strong> {{ l.product?.price | number:'1.2-2' }} €</p>
-        <p><strong>Qté:</strong> {{ l.quantite }}</p>
-        <p><strong>Remise (%):</strong> {{ l.remise }}</p>
-        <p><strong>HT net:</strong> {{ calcTotaux(l).total_ht_net | number:'1.2-2' }} €</p>
-        <p><strong>TVA (%):</strong> {{ l.tva }}</p>
-        <p><strong>TTC:</strong> {{ calcTotaux(l).total_ttc | number:'1.2-2' }} €</p>
-        <hr>
-      </div>
-      
-    <button class="btn btn-secondary" (click)="closeModal()">Fermer</button>
-    <button class="btn btn-primary" (click)="commander(selectedDevis)">📦 Commander</button>
-    
+      <p><strong>ID:</strong> {{ l.id }}</p>
+      <p><strong>Produit:</strong> {{ l.product?.name || 'Produit inconnu' }}</p>
+      <p><strong>Prix unitaire:</strong> {{ l.product?.price | number:'1.2-2' }} €</p>
+      <p><strong>Qté:</strong> {{ l.quantite }}</p>
+      <p><strong>Remise (%):</strong> {{ l.remise }}</p>
+      <p><strong>HT net:</strong> {{ calcTotaux(l).total_ht_net | number:'1.2-2' }} €</p>
+      <p><strong>TVA (%):</strong> {{ l.tva }}</p>
+      <p><strong>TTC:</strong> {{ calcTotaux(l).total_ttc | number:'1.2-2' }} €</p>
+      <hr>
+    </div>
+
+    <div class="modal-actions">
+      <button class="btn-cancel" (click)="closeModal()">Fermer</button>
+      <button class="btn-order" (click)="commander(selectedDevis)">📦 Commander</button>
+    </div>
   </div>
 </div>

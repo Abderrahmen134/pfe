@@ -94,6 +94,15 @@ export class DemandeDevisComponent implements OnInit {
         });
   
         alert('Devis envoyé avec succès !');
+        // Réinitialiser les produits (vider images et quantités)
+this.selectedProducts = [];
+
+// Réinitialiser le champ "société"
+this.clientData.societe = '';
+
+// Optionnel : vider aussi localStorage si tu ne veux pas conserver l'ancien panier
+localStorage.removeItem('selectedProduct');
+
       },
       error: (err) => {
         console.error('Erreur lors de l\'envoi du devis :', err);

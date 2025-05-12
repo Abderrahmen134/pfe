@@ -10,10 +10,13 @@ import { Subject, filter, takeUntil } from 'rxjs';
 export class HeaderComponent implements OnDestroy {
   scrolled = false;
   isAdminRoute = false;
+  isLoggedIn = false;
+
   private destroy$ = new Subject<void>();
 
   constructor(private router: Router) {
     this.setupRouteListener();
+    this.isLoggedIn = !!localStorage.getItem('client');
   }
 
   @HostListener('window:scroll', [])
@@ -34,4 +37,20 @@ export class HeaderComponent implements OnDestroy {
     this.destroy$.next();
     this.destroy$.complete();
   }
+  ngOnInit() {
+    this.router.events.pipe(
+      takeUntil(this.destroy$),
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe(() => {
+      this.isLoggedIn = !!localStorage.getItem('client');
+    });
+  }
+  logout() {
+    localStorage.removeItem('client');
+    localStorage.removeItem('token');
+    this.isLoggedIn = false;
+    this.router.navigate(['/signin']);
+  }
+  
+  
 }
