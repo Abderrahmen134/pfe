@@ -183,4 +183,31 @@
         }
       }
     }
+    .btn-activer, .btn-desactiver {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-activer {
+  background-color: #28a745;
+  color: white;
+}
+
+.btn-activer:hover {
+  background-color: #218838;
+}
+
+.btn-desactiver {
+  background-color: #dc3545;
+  color: white;
+}
+
+.btn-desactiver:hover {
+  background-color: #c82333;
+}
+
   

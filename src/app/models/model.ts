@@ -15,6 +15,7 @@ export interface Product {
     mot_de_passe: string;
     phone: string;
     gouvernorat: string;
+    statut: string; 
   }
   export interface ClientData {
     prenom: string;
