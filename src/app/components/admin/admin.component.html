@@ -1,13 +1,13 @@
-<div class="admin-container">
+<div class="admin-container"> 
   <!-- Sidebar -->
   <aside class="sidebar">
     <h2><img src="assets/images/ASM.png" class="logo-icon"></h2>
     <nav>
       <ul>
         <li>
-          <a routerLink="/admin"routerLinkActive="active">
+          <a routerLink="/admin" routerLinkActive="active">
             <img src="assets/images/home.png" class="menu-icon"> 
-            Acceuil
+            Accueil
             <div class="notification-badge" *ngIf="totalNotifications > 0">
               {{ totalNotifications }}
             </div>
@@ -16,34 +16,34 @@
         <li>
           <a routerLink="admin/Dashboard">
             <img src="assets/images/dashboard.png" class="menu-icon"> 
-            Dashboard
+            Tableau de bord
             <div class="notification-badge" *ngIf="notifications.dashboard > 0">
               {{ notifications.dashboard }}
             </div>
           </a>
         </li>
         <li>
-          <a  routerLink="/admin-products" routerLinkActive="active">
+          <a routerLink="/admin-products" routerLinkActive="active">
             <img src="assets/images/box.png" class="menu-icon"> 
-            Gestion des Produits
+            Gestion des produits
             <div class="notification-badge" *ngIf="notifications.produits > 0">
               {{ notifications.produits }}
             </div>
           </a>
         </li>
         <li>
-          <a  routerLink="/admin-users" routerLinkActive="active">
+          <a routerLink="/admin-users" routerLinkActive="active">
             <img src="assets/images/client.png" class="menu-icon"> 
-            Gestion des Clients
+            Gestion des clients
             <div class="notification-badge" *ngIf="notifications.clients > 0">
               {{ notifications.clients }}
             </div>
           </a>
         </li>
         <li>
-          <a  routerLink="/admin-gestion" routerLinkActive="active">
+          <a routerLink="/admin-gestion" routerLinkActive="active">
             <img src="assets/images/admin.png" class="menu-icon"> 
-            Gestion des Admins
+            Gestion des administrateurs
             <div class="notification-badge" *ngIf="notifications.admins > 0">
               {{ notifications.admins }}
             </div>
@@ -54,7 +54,6 @@
             <img src="assets/images/logout.png" class="menu-icon"> 
             Déconnexion
           </a>
-          
         </li>
       </ul>
     </nav>
@@ -63,17 +62,17 @@
   <!-- Main content -->
   <main class="main-content">
     <header class="admin-header">
-      <h1>Welcome to Admin Panel</h1>
+      <h1>Bienvenue sur le panneau d'administration</h1>
     </header>
 
     <section class="admin-content">
-      <h2>Suivi des Commandes</h2>
+      <h2>Suivi des commandes</h2>
       <div class="status-cards">
         <div class="status-card devis">
           <div class="notification-badge" *ngIf="notifications.devis > 0">
             {{ notifications.devis }}
           </div>
-          <a routerLink="/admin-devis"routerLinkActive="active">Demande de devis</a>
+          <a routerLink="/admin-devis" routerLinkActive="active">Demandes de devis</a>
           <img src="assets/images/estimate.png" class="status-icon">
         </div>
 
@@ -81,7 +80,7 @@
           <div class="notification-badge" *ngIf="notifications.confirmation > 0">
             {{ notifications.confirmation }}
           </div>
-          <a routerLink="/admin-encours"routerLinkActive="active">Commande en cours de confirmation</a>
+          <a routerLink="/admin-encours" routerLinkActive="active">Commandes en cours de confirmation</a>
           <img src="assets/images/hour-glass.png" class="status-icon">
         </div>
 
@@ -89,17 +88,15 @@
           <div class="notification-badge" *ngIf="notifications.confirme > 0">
             {{ notifications.confirme }}
           </div>
-          <a routerLink="/admin-confirme"routerLinkActive="active">Commande confirmé</a>
+          <a routerLink="/admin-confirme" routerLinkActive="active">Commandes confirmées</a>
           <img src="assets/images/right.png" class="status-icon">
         </div>
-
-        
 
         <div class="status-card livre">
           <div class="notification-badge" *ngIf="notifications.livre > 0">
             {{ notifications.livre }}
           </div>
-          <a routerLink="/admin-livre"routerLinkActive="active">Commande livré</a>
+          <a routerLink="/admin-livre" routerLinkActive="active">Commandes livrées</a>
           <img src="assets/images/shippedY.png" class="status-icon">
         </div>
       </div>

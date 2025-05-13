@@ -1,4 +1,4 @@
-<div *ngIf="message.text" class="message" [ngClass]="message.type">
+<div *ngIf="message.text" class="message" [ngClass]="message.type"> 
   {{ message.text }}
 </div>
 
@@ -7,7 +7,7 @@
     <tr>
       <th>#</th>
       <th>Société</th>
-      <th>Status</th>
+      <th>Statut</th>
       <th>Actions</th>
     </tr>
   </thead>
@@ -17,8 +17,8 @@
       <td>{{ devis.societe }}</td>
       <td>{{ devis.status }}</td>
       <td>
-        <button (click)="confirmDelete(devis)">🗑️</button>
-        <button (click)="onSelectDevis(devis)">Voir détails</button>
+        <button (click)="confirmDelete(devis)">🗑️ Supprimer</button>
+        <button (click)="onSelectDevis(devis)">👁 Voir les détails</button>
         <button *ngIf="devis.status !== 'commande_validee'" (click)="onChangeStatus(devis, 'commande_validee')">✅ Accepter</button>
       </td>
     </tr>
@@ -26,7 +26,7 @@
 </table>
 
 <div *ngIf="selectedDevis" class="details">
-  <h3>Détails du devis #{{ selectedDevis.id }}</h3>
+  <h3>Détails du devis n°{{ selectedDevis.id }}</h3>
   <table class="ligne-table">
     <thead>
       <tr>
@@ -56,9 +56,9 @@
     </tbody>
   </table>
 </div>
+
 <div class="save-button-container" style="margin-top: 20px; text-align: right;">
   <button class="btn btn-success" (click)="enregistrerModifications()">
     💾 Enregistrer
   </button>
 </div>
-

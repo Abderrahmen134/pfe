@@ -1,65 +1,56 @@
-<div class="container">
+<div class="container"> 
   <br />
   <br />
   <br />
-    <div class="header">
-        <button class="btn-orange" routerLink="/product" routerLinkActive="active">Retour</button>
-    </div>
-  
-    <div class="product-list">
-      <div class="product-header">
-        <span>Panier</span>
-      </div>
-  
-      <div class="product-grid">
-        <div class="product-item" *ngFor="let product of selectedProducts">
-            <span class="remove" (click)="removeProduct(product)">✖</span>
-          <img [src]="product.image" alt="{{product.name}}" class="product-image" />
-          <span class="product-title">{{ product.name }}</span>
-          <input type="number" min="1" [(ngModel)]="product.quantity" name="quantity{{product.id}}" class="quantity-input" />
-
-       <!-- <input type="number" min="1" [value]="product.quantity || 1" class="quantity-input" />-->  
-        </div>
-      </div>
-      
-      
-    </div>
-  
-    <h2>Envoyer la demande</h2>
-    <form (ngSubmit)="envoyerDevis()" #devisForm="ngForm">
-      <div class="form-group">
-        <label for="prenom">Nom complet <span class="required">*</span></label>
-        <div class="name-fields">
-          <input type="text" id="prenom" placeholder="Prénom" required [(ngModel)]="clientData.prenom" name="prenom">
-          <input type="text" id="nom" placeholder="Nom" required [(ngModel)]="clientData.nom" name="nom">
-        </div>
-      </div>
-    
-      <div class="form-group">
-        <label for="email">E-mail <span class="required">*</span></label>
-        <input type="email" id="email" placeholder="Votre e-mail" required [(ngModel)]="clientData.email" name="email">
-      </div>
-    
-      <div class="form-group">
-        <label for="telephone">Téléphone <span class="required">*</span></label>
-        <input type="tel" id="telephone" placeholder="Votre téléphone" required [(ngModel)]="clientData.telephone" name="telephone">
-      </div>
-    
-      <div class="form-group">
-        <label for="ville">Ville <span class="required">*</span></label>
-        <input type="text" id="ville" placeholder="Votre ville" required [(ngModel)]="clientData.gouvernorat" name="ville">
-
-      </div>
-    
-      <div class="form-group">
-        <label for="societe">Société <span class="required">*</span></label>
-        <input type="text" id="societe" placeholder="Nom de votre société" required [(ngModel)]="clientData.societe" name="societe">
-      </div>
-    
-      <button type="submit" [disabled]="!devisForm.form.valid">Envoyer</button>
-    </form>
-    
-    
+  <div class="header">
+    <button class="btn-orange" routerLink="/product" routerLinkActive="active">Retour</button>
   </div>
 
+  <div class="product-list">
+    <div class="product-header">
+      <span>Panier</span>
+    </div>
 
+    <div class="product-grid">
+      <div class="product-item" *ngFor="let product of selectedProducts">
+        <span class="remove" (click)="removeProduct(product)">✖</span>
+        <img [src]="product.image" alt="{{product.name}}" class="product-image" />
+        <span class="product-title">{{ product.name }}</span>
+        <input type="number" min="1" [(ngModel)]="product.quantity" name="quantity{{product.id}}" class="quantity-input" />
+      </div>
+    </div>
+  </div>
+
+  <h2>Envoyer la demande</h2>
+  <form (ngSubmit)="envoyerDevis()" #devisForm="ngForm">
+    <div class="form-group">
+      <label for="prenom">Nom complet <span class="required">*</span></label>
+      <div class="name-fields">
+        <input type="text" id="prenom" placeholder="Prénom" required [(ngModel)]="clientData.prenom" name="prenom">
+        <input type="text" id="nom" placeholder="Nom" required [(ngModel)]="clientData.nom" name="nom">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="email">E-mail <span class="required">*</span></label>
+      <input type="email" id="email" placeholder="Votre e-mail" required [(ngModel)]="clientData.email" name="email">
+    </div>
+
+    <div class="form-group">
+      <label for="telephone">Téléphone <span class="required">*</span></label>
+      <input type="tel" id="telephone" placeholder="Votre téléphone" required [(ngModel)]="clientData.telephone" name="telephone">
+    </div>
+
+    <div class="form-group">
+      <label for="ville">Ville <span class="required">*</span></label>
+      <input type="text" id="ville" placeholder="Votre ville" required [(ngModel)]="clientData.gouvernorat" name="ville">
+    </div>
+
+    <div class="form-group">
+      <label for="societe">Société <span class="required">*</span></label>
+      <input type="text" id="societe" placeholder="Nom de votre société" required [(ngModel)]="clientData.societe" name="societe">
+    </div>
+
+    <button type="submit" [disabled]="!devisForm.form.valid">Envoyer</button>
+  </form>
+</div>

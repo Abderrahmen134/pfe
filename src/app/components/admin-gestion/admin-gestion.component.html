@@ -1,5 +1,5 @@
-<div class="admin-container">
-  <!-- Sidebar -->
+<div class="admin-container"> 
+  <!-- Barre latérale -->
   <aside class="sidebar">
     <h2><img src="assets/images/ASM.png" class="logo-icon"></h2>
     <nav>
@@ -16,7 +16,7 @@
         <li>
           <a routerLink="admin/Dashboard">
             <img src="assets/images/dashboard.png" class="menu-icon"> 
-            Dashboard
+            Tableau de bord
             <div class="notification-badge" *ngIf="notifications.dashboard > 0">
               {{ notifications.dashboard }}
             </div>
@@ -25,7 +25,7 @@
         <li>
           <a routerLink="/admin-products" routerLinkActive="active">
             <img src="assets/images/box.png" class="menu-icon"> 
-            Gestion des Produits
+            Gestion des produits
             <div class="notification-badge" *ngIf="notifications.produits > 0">
               {{ notifications.produits }}
             </div>
@@ -34,7 +34,7 @@
         <li>
           <a routerLink="/admin-users" routerLinkActive="active">
             <img src="assets/images/client.png" class="menu-icon"> 
-            Gestion des Clients
+            Gestion des clients
             <div class="notification-badge" *ngIf="notifications.clients > 0">
               {{ notifications.clients }}
             </div>
@@ -43,7 +43,7 @@
         <li>
           <a routerLink="/admin-gestion" routerLinkActive="active">
             <img src="assets/images/admin.png" class="menu-icon"> 
-            Gestion des Admins
+            Gestion des administrateurs
             <div class="notification-badge" *ngIf="notifications.admins > 0">
               {{ notifications.admins }}
             </div>
@@ -59,14 +59,14 @@
     </nav>
   </aside>
 
-  <!-- Main Content -->
+  <!-- Contenu principal -->
   <main class="main-content">
     <header class="admin-header">
-      <h1>Gestion des Admins</h1>
+      <h1>Gestion des administrateurs</h1>
     </header>
 
     <div class="card">
-      <button pButton type="button" label="Ajouter un Admin" icon="pi pi-plus" class="p-button-success mb-3" (click)="openNew()"></button>
+      <button pButton type="button" label="Ajouter un administrateur" icon="pi pi-plus" class="p-button-success mb-3" (click)="openNew()"></button>
 
       <p-table [value]="admins" [paginator]="true" [rows]="10" responsiveLayout="scroll">
         <ng-template pTemplate="header">
@@ -95,7 +95,7 @@
       </p-table>
     </div>
 
-    <p-dialog header="{{ selectedAdmin ? 'Modifier un Admin' : 'Ajouter un Admin' }}" [(visible)]="adminDialog" [modal]="true" [style]="{width: '400px'}" (onHide)="hideDialog()">
+    <p-dialog header="{{ selectedAdmin ? 'Modifier un administrateur' : 'Ajouter un administrateur' }}" [(visible)]="adminDialog" [modal]="true" [style]="{width: '400px'}" (onHide)="hideDialog()">
       <form [formGroup]="adminForm" (ngSubmit)="saveAdmin()">
         <div class="p-fluid">
           <div class="p-field">
@@ -119,7 +119,7 @@
           <div class="p-field">
             <label>Mot de passe</label>
             <input type="password" pInputText formControlName="mot_de_passe" />
-            <small *ngIf="submitted && adminForm.controls['mot_de_passe'].invalid" class="p-error">6 caractères min.</small>
+            <small *ngIf="submitted && adminForm.controls['mot_de_passe'].invalid" class="p-error">6 caractères minimum.</small>
           </div>
 
           <div class="p-field">

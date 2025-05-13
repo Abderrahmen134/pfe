@@ -12,20 +12,19 @@
       <div class="nav-item dropdown">
         
         <a class="nav-item" routerLink="/product" routerLinkActive="active" href="javascript:void(0)">
-        All Products
-      </a>
+          Tous les produits
+        </a>
         
         <div class="dropdown-menu">
           <a routerLink="/Beauty" routerLinkActive="active">
-            Beauty
+            Beauté
           </a>
           <a routerLink="/Clean" routerLinkActive="active">
-            Clean
+            Nettoyage
           </a>
           <a routerLink="/Location" routerLinkActive="active">
             Location
           </a>
-        
           <a routerLink="/Magasin" routerLinkActive="active">
             Magasin
           </a>
@@ -35,39 +34,36 @@
           <a routerLink="/Parapharmacie" routerLinkActive="active">
             Parapharmacie
           </a>
-  
           <a routerLink="/Pâtisserie" routerLinkActive="active">
             Pâtisserie
           </a>
           <a routerLink="/Clean" routerLinkActive="active">
-            Clean
+            Nettoyage
           </a>
           <a routerLink="/Restaurant" routerLinkActive="active">
             Restaurant
           </a>
-        <a routerLink="/Store" routerLinkActive="active">
-          Store
-        </a>
+          <a routerLink="/Store" routerLinkActive="active">
+            Boutique
+          </a>
         </div>
       </div>
 
-      
       <a
-  *ngIf="isLoggedIn"
-  class="nav-item"
-  routerLink="/client-devis"
-  routerLinkActive="active"
->
-  Devis
-</a>
-
+        *ngIf="isLoggedIn"
+        class="nav-item"
+        routerLink="/client-devis"
+        routerLinkActive="active"
+      >
+        Devis
+      </a>
     </nav>
   </div>
 
   <div class="right">
     <ng-container *ngIf="!isLoggedIn">
-      <a routerLink="/signin" routerLinkActive="active">Sign In</a>
-      <a routerLink="/signup" routerLinkActive="active">Sign Up</a>
+      <a routerLink="/signin" routerLinkActive="active">Connexion</a>
+      <a routerLink="/signup" routerLinkActive="active">Créer un compte</a>
     </ng-container>
     
     <ng-container *ngIf="isLoggedIn">

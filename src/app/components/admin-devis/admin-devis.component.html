@@ -1,70 +1,69 @@
 <div *ngIf="message.text" class="message" [ngClass]="message.type">
-    {{ message.text }}
-  </div>
-  
-  <table class="devis-table">
+  {{ message.text }}
+</div>
+
+<table class="devis-table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Société</th>
+      <th>Statut</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let devis of devisList">
+      <td>{{ devis.id }}</td>
+      <td>{{ devis.societe }}</td>
+      <td>
+        <select [(ngModel)]="devis.status"
+                (change)="onChangeStatus(devis, devis.status)">
+          <option *ngFor="let s of statuses" [value]="s">{{ s }}</option>
+        </select>
+      </td>
+      <td>
+        <button (click)="confirmDelete(devis)">🗑️ Supprimer</button>
+        <button (click)="onSelectDevis(devis)">👁 Voir les détails</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div *ngIf="selectedDevis" class="details">
+  <h3>Détails du devis n°{{ selectedDevis.id }}</h3>
+  <table class="ligne-table">
     <thead>
       <tr>
-        <th>#</th>
-        <th>Société</th>
-        <th>Status</th>
-        <th>Actions</th>
+        <th>ID</th>
+        <th>Produit</th>
+        <th>Prix unitaire</th>
+        <th>Qté</th>
+        <th>Remise (%)</th>
+        <th>HT net</th>
+        <th>TVA (%)</th>
+        <th>TTC</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let devis of devisList">
-        <td>{{ devis.id }}</td>
-        <td>{{ devis.societe }}</td>
+      <tr *ngFor="let l of lignes">
+        <td>{{ l.id }}</td>
+        <td>{{ l.product?.name || 'Produit inconnu' }}</td>
+        <td>{{ l.product?.price | number:'1.2-2' }} €</td>
+        <td>{{ l.quantite }}</td>
         <td>
-          <select [(ngModel)]="devis.status"
-                  (change)="onChangeStatus(devis, devis.status)">
-            <option *ngFor="let s of statuses" [value]="s">{{ s }}</option>
-          </select>
+          <input type="number" [(ngModel)]="l.remise"
+                 (blur)="onRemiseChange(l)" min="0" max="100" />
         </td>
-        <td>
-          <button (click)="confirmDelete(devis)">🗑️</button>
-          <button (click)="onSelectDevis(devis)">Voir détails</button>
-        </td>
+        <td>{{ calcTotaux(l).total_ht_net | number:'1.2-2' }}</td>
+        <td>{{ l.tva }}</td>
+        <td>{{ calcTotaux(l).total_ttc | number:'1.2-2' }}</td>
       </tr>
     </tbody>
   </table>
-  
-  <div *ngIf="selectedDevis" class="details">
-    <h3>Détails du devis #{{ selectedDevis.id }}</h3>
-    <table class="ligne-table">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Produit</th>
-          <th>Prix unitaire</th>
-          <th>Qté</th>
-          <th>Remise (%)</th>
-          <th>HT net</th>
-          <th>TVA (%)</th>
-          <th>TTC</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let l of lignes">
-          <td>{{ l.id }}</td>
-          <td>{{ l.product?.name || 'Produit inconnu' }}</td>
-          <td>{{ l.product?.price | number:'1.2-2' }} €</td>
-          <td>{{ l.quantite }}</td>
-          <td>
-            <input type="number" [(ngModel)]="l.remise"
-                   (blur)="onRemiseChange(l)" min="0" max="100"/>
-          </td>
-          <td>{{ calcTotaux(l).total_ht_net | number:'1.2-2' }}</td>
-          <td>{{ l.tva }}</td>
-          <td>{{ calcTotaux(l).total_ttc | number:'1.2-2' }}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <div class="save-button-container" style="margin-top: 20px; text-align: right;">
-    <button class="btn btn-success" (click)="enregistrerModifications()">
-      💾 Enregistrer
-    </button>
-  </div>
-  
-  
+</div>
+
+<div class="save-button-container" style="margin-top: 20px; text-align: right;">
+  <button class="btn btn-success" (click)="enregistrerModifications()">
+    💾 Enregistrer
+  </button>
+</div>
