@@ -10,9 +10,11 @@
 
     <nav class="nav">
       <div class="nav-item dropdown">
-        <a class="dropbtn" href="javascript:void(0)">
-          Business Types 
-        </a>
+        
+        <a class="nav-item" routerLink="/product" routerLinkActive="active" href="javascript:void(0)">
+        All Products
+      </a>
+        
         <div class="dropdown-menu">
           <a routerLink="/Beauty" routerLinkActive="active">
             Beauty
@@ -49,9 +51,7 @@
         </div>
       </div>
 
-      <a class="nav-item" routerLink="/product" routerLinkActive="active">
-        All Products
-      </a>
+      
       <a
   *ngIf="isLoggedIn"
   class="nav-item"

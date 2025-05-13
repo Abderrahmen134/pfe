@@ -45,6 +45,10 @@ export class DevisService {
   commandeValidee(): Observable<Devis[]> {
     return this.http.get<Devis[]>(`${this.apiUrl}/commandeValidee`);
   }
-  
+  // Ajoute cette méthode dans ton service DevisService
+commandeLivree(): Observable<Devis[]> {
+  return this.http.get<Devis[]>(`${this.apiUrl}/commandeLivree`);
+}
+
   
 }

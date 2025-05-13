@@ -17,9 +17,12 @@ import { AdminDevisComponent } from './components/admin-devis/admin-devis.compon
 import { ClientDevisComponent } from './components/client-devis/client-devis.component';
 import { AdminEncoursComponent } from './components/admin-encours/admin-encours.component';
 import { AdminConfirmeComponent } from './components/admin-confirme/admin-confirme.component';
-import { AdminEncoursLivraisonComponent } from './components/admin-encours-livraison/admin-encours-livraison.component';
+import { AdminGestionComponent } from './components/admin-gestion/admin-gestion.component';
+import { AdminLivreComponent } from './components/admin-livre/admin-livre.component';
+
 import { ClientGuard } from './guards/client.guard';
 import { AdminGuard } from './guards/admin.guard';
+
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -40,7 +43,9 @@ const routes: Routes = [
   { path: 'client-devis', component: ClientDevisComponent, canActivate: [ClientGuard] },
   {path: 'admin-encours', component: AdminEncoursComponent, canActivate: [AdminGuard]  },
   {path: 'admin-confirme', component:  AdminConfirmeComponent, canActivate: [AdminGuard] },
-  {path: 'admin-encours-livraison', component:  AdminEncoursLivraisonComponent, canActivate: [AdminGuard] },
+  {path: 'admin-livre', component:  AdminLivreComponent, canActivate: [AdminGuard] },
+
+  {path: 'admin-gestion', component: AdminGestionComponent, canActivate: [AdminGuard]  },
 ];
 
 @NgModule({

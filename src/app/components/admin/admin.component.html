@@ -41,7 +41,7 @@
           </a>
         </li>
         <li>
-          <a routerLink="/admin/Gestion_des_Admins">
+          <a  routerLink="/admin-gestion" routerLinkActive="active">
             <img src="assets/images/admin.png" class="menu-icon"> 
             Gestion des Admins
             <div class="notification-badge" *ngIf="notifications.admins > 0">
@@ -93,19 +93,13 @@
           <img src="assets/images/right.png" class="status-icon">
         </div>
 
-        <div class="status-card livraison">
-          <div class="notification-badge" *ngIf="notifications.livraison > 0">
-            {{ notifications.livraison }}
-          </div>
-          <a routerLink="/admin-encours-livraison"routerLinkActive="active">Commande en cours de livraison</a>
-          <img src="assets/images/shipped.png" class="status-icon">
-        </div>
+        
 
         <div class="status-card livre">
           <div class="notification-badge" *ngIf="notifications.livre > 0">
             {{ notifications.livre }}
           </div>
-          <span>Commande livré</span>
+          <a routerLink="/admin-livre"routerLinkActive="active">Commande livré</a>
           <img src="assets/images/shippedY.png" class="status-icon">
         </div>
       </div>
