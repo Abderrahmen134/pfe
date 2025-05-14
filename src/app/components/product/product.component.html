@@ -1,12 +1,18 @@
-<br><br><br><br><br>
-<div *ngFor="let type of typesProducts" class="field-checkbox">
-    <p-checkbox 
+<!-- Filtres par type -->
+<div class="filters-container">
+  <h2>Filtrer par type</h2>
+  <div class="checkbox-group">
+    <div *ngFor="let type of typesProducts" class="field-checkbox">
+      <p-checkbox
         [(ngModel)]="selectedTypes"
-        [label]="type.name" 
-        name="group" 
-        [value]="type" (onChange)="filterProduct()"></p-checkbox>
+        [label]="type.name"
+        name="group"
+        [value]="type"
+        (onChange)="filterProduct()">
+      </p-checkbox>
+    </div>
+  </div>
 </div>
-
 
 <div class="product-grid"> 
   <div class="product-card" *ngFor="let product of products">

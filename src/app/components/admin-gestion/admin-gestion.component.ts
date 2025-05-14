@@ -36,6 +36,15 @@ export class AdminGestionComponent implements OnInit {
       error: err => console.error(err)
     });
   }
+  changerStatut(id: number, nouveauStatut: string) {
+  const url = `http://127.0.0.1:8000/api/admins/${id}/statut`;
+  this.http.put(url, { statutad: nouveauStatut }).subscribe({
+    next: () => this.loadAdmins(),
+    error: err => console.error('Erreur lors du changement de statut:', err)
+  });
+}
+
+  
 
   openNew() {
     this.adminForm.reset();
@@ -83,16 +92,17 @@ export class AdminGestionComponent implements OnInit {
   }
   
    notifications = {
-    devis: 2,
-    confirmation: 1,
-    confirme: 4,
-    livraison: 3,
+    devis: 0,
+    confirmation: 0,
+    confirme: 0,
+    livraison: 0,
     livre: 0,
     dashboard: 0,
-    produits: 5,
-    clients: 2,
-    admins: 1
+    produits: 0,
+    clients: 0,
+    admins: 0
   };
+  
 
   get totalNotifications(): number {
     return this.notifications.devis + 

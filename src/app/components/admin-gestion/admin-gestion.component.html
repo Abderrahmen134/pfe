@@ -77,6 +77,8 @@
             <th>Téléphone</th>
             <th>Gouvernorat</th>
             <th>Actions</th>
+            <th>Statut</th>
+
           </tr>
         </ng-template>
         <ng-template pTemplate="body" let-admin>
@@ -90,6 +92,15 @@
               <button pButton icon="pi pi-pencil" class="p-button-rounded p-button-warning mr-2" (click)="editAdmin(admin)"></button>
               <button pButton icon="pi pi-trash" class="p-button-rounded p-button-danger" (click)="deleteAdmin(admin)"></button>
             </td>
+            <td>
+  <button class="btn-activer" (click)="changerStatut(admin.id, 'actif')" *ngIf="admin.statutad === 'non actif'">
+    Activer
+  </button>
+  <button class="btn-desactiver" (click)="changerStatut(admin.id, 'non actif')" *ngIf="admin.statutad === 'actif'">
+    Désactiver
+  </button>
+</td>
+
           </tr>
         </ng-template>
       </p-table>

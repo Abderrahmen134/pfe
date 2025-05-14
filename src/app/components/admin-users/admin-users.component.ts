@@ -32,15 +32,15 @@ export class AdminUsersComponent implements OnInit {
 }
 
   notifications = {
-    devis: 2,
-    confirmation: 1,
-    confirme: 4,
-    livraison: 3,
+    devis: 0,
+    confirmation: 0,
+    confirme: 0,
+    livraison: 0,
     livre: 0,
     dashboard: 0,
-    produits: 5,
-    clients: 2,
-    admins: 1
+    produits: 0,
+    clients: 0,
+    admins: 0
   };
   get totalNotifications(): number {
     return this.notifications.devis + 
