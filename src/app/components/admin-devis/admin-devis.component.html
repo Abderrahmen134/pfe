@@ -10,7 +10,6 @@
        <th>Nom client</th>
         <th>Prénom client</th>
         <th>Email client</th>
-        <th>Téléphone client</th>
         <th>Gouvernorat client</th>
       <th>Statut</th>
       <th>Actions</th>
@@ -23,7 +22,7 @@
        <td>{{ devis?.client?.nom }}</td>
        <td>{{ devis?.client?.prenom }}</td>
        <td>{{ devis?.client?.email }}</td>
-        <td>{{ devis?.client?.phone}}</td>
+      
        <td>{{ devis?.client?.gouvernorat }}</td>
       <td>
         <select [(ngModel)]="devis.status"

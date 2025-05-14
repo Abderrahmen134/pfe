@@ -32,15 +32,15 @@ export class AdminEncoursComponent implements OnInit {
   }
   
   loadDevis() {
-    this.devisService.CommandesDemandees().subscribe({
-      next: data => {
-        this.devisList = data.data; // ✔️ On récupère le tableau
-        console.log('Devis List chargée:', this.devisList);
-      },
-      error: () => this.showMessage('Erreur chargement devis', 'error')
-    });
-  }
-  
+  this.devisService.getAll().subscribe({
+    next: data => {
+      // filtrer ici sur le statut "commande_demandee"
+      this.devisList = data.filter(d => d.status === 'commande_demandee');
+    },
+    error: () => this.showMessage('Erreur chargement devis', 'error')
+  });
+}
+
   
   onSelectDevis(d: Devis) {
     this.selectedDevis = d;

@@ -11,6 +11,7 @@ import { LigneDevis } from 'src/app/models/model';
 export class AdminConfirmeComponent implements OnInit {
   commandesValidees: Devis[] = [];
   selectedDevis: any = null;
+  
   showModal: boolean = false;
 
   constructor(private devisService: DevisService, private http: HttpClient) {}
@@ -29,6 +30,9 @@ export class AdminConfirmeComponent implements OnInit {
       }
     });
   }
+  
+
+  
 
   voirDetail(devis: Devis): void {
     this.selectedDevis = devis;
