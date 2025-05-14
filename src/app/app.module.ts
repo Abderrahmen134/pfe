@@ -36,6 +36,9 @@ import { AdminEncoursComponent } from './components/admin-encours/admin-encours.
 import { AdminConfirmeComponent } from './components/admin-confirme/admin-confirme.component';
 import { AdminGestionComponent } from './components/admin-gestion/admin-gestion.component';
 import { AdminLivreComponent } from './components/admin-livre/admin-livre.component';
+import { MultiSelectModule } from 'primeng/multiselect';
+import { DropdownModule } from 'primeng/dropdown';
+
 
 
 
@@ -83,17 +86,15 @@ import { AdminLivreComponent } from './components/admin-livre/admin-livre.compon
     ReactiveFormsModule,
     CommonModule,
     CheckboxModule,
-    ButtonModule,
     InputTextModule,
     PasswordModule,
-    MessagesModule,
-    ButtonModule,
+    DropdownModule,
         // PrimeNG
     TableModule,
     DialogModule,
-    ButtonModule,
     InputNumberModule,
     BrowserAnimationsModule,
+    MultiSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

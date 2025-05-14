@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProductService } from '../../services/product.service';
 import { AuthService } from 'src/app/services/auth.service';
+import { TypeService } from 'src/app/services/type.service';
+import { Type } from 'src/app/models/model';
 
 
 
@@ -12,21 +14,27 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class ProductComponent implements OnInit {
   products: any[] = [];
-
+  allProducts: any[] = [];
+  typesProducts: Type[] = [];
+  selectedTypes: Type[] = [];
   constructor(
     private router: Router,
     private productService: ProductService,
-    private authService: AuthService
-    
+    private authService: AuthService,
+    private typeService: TypeService
   ) {}
 
   ngOnInit(): void {
+    this.typeService.getTypes().subscribe(res => {
+      this.typesProducts = res;}
+    );
     this.loadProducts();
   }
 
   loadProducts(): void {
     this.productService.getProducts().subscribe(data => {
       this.products = data;
+      this.allProducts = data; // Stocker tous les produits pour le filtrage
     });
   }
 
@@ -59,6 +67,14 @@ export class ProductComponent implements OnInit {
     }
   }
   
-
+filterProduct(){
+  console
+.log('Selected Types:', this.selectedTypes);
+console.log('All Products:', this.allProducts);
+this.products=this.selectedTypes.length>0?
+   this.allProducts.filter(product =>
+  this.selectedTypes.some(type => product.type_id == type.id)
+):this.allProducts;
+}
 
 }

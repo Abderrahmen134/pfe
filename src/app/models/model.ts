@@ -6,6 +6,8 @@ export interface Product {
     quantity: number;
     price: number;
     image: string;
+    type?: number; // Ajout pour multiselect
+
   }
   export interface User {
     id: number;
@@ -43,4 +45,9 @@ export interface Product {
     tva: number;
     total_ttc: number;
     product?: Product; // ✅ Ajouter cette ligne
+  }
+  export interface Type {
+    id: number;
+    name: string;
+     
   }

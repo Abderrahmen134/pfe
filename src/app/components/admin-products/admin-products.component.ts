@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Product } from 'src/app/models/model';
 import { ProductService } from 'src/app/services/product.service';
+import { TypeService } from 'src/app/services/type.service';
 
 @Component({
   selector: 'app-admin-products',
@@ -15,21 +16,31 @@ export class AdminProductsComponent implements OnInit {
    productDialog: boolean = false;
    productForm!: FormGroup;
    submitted: boolean = false;
- 
-   constructor(private productService: ProductService, private fb: FormBuilder) {}
+   types: any[] = []; // Tableau des types
+   constructor(private productService: ProductService,private typeService: TypeService, private fb: FormBuilder) {}
  
    ngOnInit(): void {
      this.loadProducts();
+     this.loadTypes(); // <== charger les types
+    
      this.productForm = this.fb.group({
        id: [null],
        name: ['', Validators.required],
        description: [''],
        quantity: [0, Validators.required],
        price: [0, Validators.required],
-       image: ['']
+       image: [''],
+        type_id: [null]
      });
+      console.log("bnj:",this.types);
    }
- 
+loadTypes() {
+  this.typeService.getTypes().subscribe(res => {
+    this.types = res;
+    console.log('Types chargés :', this.types); // ✅ CORRECT ici
+  });
+}
+
    loadProducts() {
      this.productService.getAll().subscribe(res => this.products = res);
    }

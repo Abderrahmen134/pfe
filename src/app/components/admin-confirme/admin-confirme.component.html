@@ -1,4 +1,4 @@
-<div class="admin-confirme-container"> 
+<div class="admin-confirme-container">
   <h2 class="page-title">📦 Commandes Confirmées</h2>
 
   <div class="table-wrapper">
@@ -17,13 +17,43 @@
           <td>{{ devis.id }}</td>
           <td>{{ devis.societe }}</td>
           <td><span class="badge success">{{ devis.status }}</span></td>
-          <td>{{ devis.created_at | date:'short' }}</td>
+          <td>{{ devis.created_at | date: 'short' }}</td>
           <td>
-            <button (click)="voirDetail(devis)">👁 Voir les détails</button>
-            <button (click)="marquerCommeLivre(devis)">✅ Marquer comme livré</button>
+            <button class="btn btn-view" (click)="voirDetail(devis)">👁 Voir les détails</button>
+<button class="btn btn-confirm" (click)="marquerCommeLivre(devis)">✅ Marquer comme livré</button>
+
           </td>
         </tr>
       </tbody>
     </table>
+  </div>
+</div>
+
+<!-- MODAL -->
+<div class="modal" *ngIf="showModal && selectedDevis">
+  <div class="modal-content">
+    <span class="close" (click)="closeModal()">×</span>
+    <h3>Détails du devis</h3>
+
+    <div *ngIf="selectedDevis.lignes?.length > 0; else noLignes">
+      <div *ngFor="let l of selectedDevis.lignes" class="ligne-devis-block">
+        <p><strong>ID :</strong> {{ l.id }}</p>
+        <p><strong>Produit :</strong> {{ l.product?.name || 'Produit inconnu' }}</p>
+        <p><strong>Prix unitaire :</strong> {{ l.product?.price | number: '1.2-2' }} €</p>
+        <p><strong>Quantité :</strong> {{ l.quantite }}</p>
+        <p><strong>Remise (%) :</strong> {{ l.remise }}</p>
+        <p><strong>Total HT net :</strong> {{ calcTotaux(l).total_ht_net | number: '1.2-2' }} €</p>
+        <p><strong>TVA (%) :</strong> {{ l.tva }}</p>
+        <p><strong>Total TTC :</strong> {{ calcTotaux(l).total_ttc | number: '1.2-2' }} €</p>
+        <hr>
+      </div>
+    </div>
+    <ng-template #noLignes>
+      <p>Aucune ligne de devis à afficher.</p>
+    </ng-template>
+
+    <div class="modal-actions">
+      <button class="btn-cancel" (click)="closeModal()">Fermer</button>
+    </div>
   </div>
 </div>

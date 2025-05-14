@@ -5,24 +5,52 @@
     <ng-template pTemplate="header">
       <tr style="background-color: #3f8cff; color: white;">
         <th>#</th>
-        <th>Société</th>
         <th>Status</th>
+        <th>Société</th>
         <th>Date</th>
         <th>Actions</th>
       </tr>
     </ng-template>
-    <ng-template pTemplate="body" let-commande let-i="rowIndex">
+
+    <ng-template pTemplate="body" let-devis>
       <tr>
-        <td>{{ i + 1 }}</td>
-        <td>{{ commande.nom_societe }}</td>
+        <td>{{ devis.id }}</td>
+        <td><span class="badge success">{{ devis.status }}</span></td>
+        <td>{{ devis.societe }}</td>
+        <td>{{ devis.created_at | date: 'short' }}</td>
         <td>
-          <span class="badge badge-success">Commande Livrée</span>
-        </td>
-        <td>{{ commande.date | date:'short' }}</td>
-        <td>
-          <button pButton icon="pi pi-eye" label="Voir Détail" class="p-button-sm p-button-secondary" (click)="voirDetail(commande)"></button>
+          <button class="btn-view" (click)="openModal(devis)">👁 Voir les détails</button>
         </td>
       </tr>
     </ng-template>
   </p-table>
+</div>
+
+<!-- Modal -->
+<div class="modal" *ngIf="showModal && selectedDevis">
+  <div class="modal-content">
+    <span class="close" (click)="closeModal()">×</span>
+    <h3>Détails du devis</h3>
+
+    <div *ngIf="selectedDevis.lignes?.length > 0; else noLignes">
+      <div *ngFor="let l of selectedDevis.lignes" class="ligne-devis-block">
+        <p><strong>ID :</strong> {{ l.id }}</p>
+        <p><strong>Produit :</strong> {{ l.product?.name || 'Produit inconnu' }}</p>
+        <p><strong>Prix unitaire :</strong> {{ l.product?.price | number: '1.2-2' }} €</p>
+        <p><strong>Quantité :</strong> {{ l.quantite }}</p>
+        <p><strong>Remise (%) :</strong> {{ l.remise }}</p>
+        <p><strong>Total HT net :</strong> {{ calcTotaux(l).total_ht_net | number: '1.2-2' }} €</p>
+        <p><strong>TVA (%) :</strong> {{ l.tva }}</p>
+        <p><strong>Total TTC :</strong> {{ calcTotaux(l).total_ttc | number: '1.2-2' }} €</p>
+        <hr>
+      </div>
+    </div>
+    <ng-template #noLignes>
+      <p>Aucune ligne de devis à afficher.</p>
+    </ng-template>
+
+    <div class="modal-actions">
+      <button class="btn-cancel" (click)="closeModal()">Fermer</button>
+    </div>
+  </div>
 </div>

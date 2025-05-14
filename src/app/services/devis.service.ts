@@ -1,14 +1,20 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { ClientData } from '../models/model';
 
 export interface Devis {
   id: number;
   societe: string;
   id_client: number;
   status: string;
+  client?:ClientData
   created_at?: string;
   updated_at?: string;
+}
+export interface ApiResponse<T> {
+  success: boolean;
+  data: T;
 }
 @Injectable({
   providedIn: 'root'
@@ -46,8 +52,8 @@ export class DevisService {
     return this.http.get<Devis[]>(`${this.apiUrl}/commandeValidee`);
   }
   // Ajoute cette méthode dans ton service DevisService
-commandeLivree(): Observable<Devis[]> {
-  return this.http.get<Devis[]>(`${this.apiUrl}/commandeLivree`);
+commandeLivree(): Observable<ApiResponse<Devis[]>> {
+  return this.http.get<ApiResponse<Devis[]>>(`${this.apiUrl}/commandeLivree`);
 }
 
   
