@@ -47,6 +47,10 @@
       <p><strong>Total HT net :</strong> {{ calcTotaux(l).total_ht_net | number:'1.2-2' }} €</p>
       <p><strong>TVA (%) :</strong> {{ l.tva }}</p>
       <p><strong>Total TTC :</strong> {{ calcTotaux(l).total_ttc | number:'1.2-2' }} €</p>
+      <div class="total-devis">
+  <p><strong>Total TTC du devis :</strong> {{ getTotalTTCDuDevis() | number:'1.2-2' }} €</p>
+</div>
+
       <hr>
     </div>
 

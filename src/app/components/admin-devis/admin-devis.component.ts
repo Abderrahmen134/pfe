@@ -13,6 +13,8 @@ export class AdminDevisComponent implements OnInit {
   lignes: LigneDevis[] = [];
   statuses = ['non-traité', 'accepté', 'rejeté'];
   message = { text: '', type: '' as 'success' | 'error' | '' };
+  ligneParDevis: { [key: number]: LigneDevis[] } = {};
+
   
   constructor(
     private devisService: DevisService,
@@ -30,11 +32,24 @@ export class AdminDevisComponent implements OnInit {
   }
   
   loadDevis() {
-    this.devisService.getAll().subscribe({
-      next: data => this.devisList = data,
-      error: () => this.showMessage('Erreur chargement devis', 'error')
-    });
-  }
+  this.devisService.getAll().subscribe({
+    next: data => {
+      this.devisList = data;
+
+      // Pour chaque devis, on charge ses lignes
+      for (let d of data) {
+        this.ligneService.getByDevis(d.id).subscribe({
+          next: lignes => {
+            this.ligneParDevis[d.id] = lignes;
+          },
+          error: () => this.showMessage(`Erreur chargement lignes devis #${d.id}`, 'error')
+        });
+      }
+    },
+    error: () => this.showMessage('Erreur chargement devis', 'error')
+  });
+}
+
   
   onSelectDevis(d: Devis) {
     this.selectedDevis = d;
@@ -86,6 +101,17 @@ export class AdminDevisComponent implements OnInit {
     this.message = { text, type };
     setTimeout(() => this.message = { text: '', type: '' }, 3000);
   }
-  
+  getTotalTTC(devisId: number): number {
+  const lignes = this.ligneParDevis[devisId] || [];
+  let total = 0;
+  for (let l of lignes) {
+    const htNet = l.total_ht * (1 - (l.remise || 0) / 100);
+    const ttc = htNet * (1 + (l.tva || 0) / 100);
+    total += ttc;
+  }
+  return total;
+}
+
+
   
 }

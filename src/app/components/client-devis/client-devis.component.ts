@@ -62,6 +62,17 @@ export class ClientDevisComponent implements OnInit {
       }
     );
   }
+ getTotalTTCDuDevis(): number {
+  if (!this.selectedDevis?.lignes) return 0;
+
+  return this.selectedDevis.lignes.reduce((total: number, ligne: LigneDevis) => {
+    const htNet = ligne.total_ht * (1 - (ligne.remise || 0) / 100);
+    const ttc = htNet * (1 + (ligne.tva || 0) / 100);
+    return total + ttc;
+  }, 0);
+}
+
+
 }
 
 
