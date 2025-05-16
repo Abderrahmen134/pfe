@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Product } from 'src/app/models/model';
 import { ProductService } from 'src/app/services/product.service';
 import { TypeService } from 'src/app/services/type.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-admin-products',
@@ -17,7 +19,7 @@ export class AdminProductsComponent implements OnInit {
    productForm!: FormGroup;
    submitted: boolean = false;
    types: any[] = []; // Tableau des types
-   constructor(private productService: ProductService,private typeService: TypeService, private fb: FormBuilder) {}
+   constructor(private productService: ProductService,private typeService: TypeService, private fb: FormBuilder,private router: Router) {}
  
    ngOnInit(): void {
      this.loadProducts();
@@ -111,6 +113,13 @@ loadTypes() {
            this.notifications.confirme +
            this.notifications.livraison +
            this.notifications.livre;
+  }
+  logout() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('role');
+    localStorage.removeItem('admin'); // si tu stockes aussi l'admin/client
+  
+    this.router.navigate(['/']); // Redirige vers la page de connexion
   }
    
 }

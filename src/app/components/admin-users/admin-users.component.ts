@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import { User } from 'src/app/models/model';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -12,7 +13,7 @@ import { HttpClient } from '@angular/common/http';
 export class AdminUsersComponent implements OnInit {
   users: User[] = [];
 
-  constructor(private userService: UserService, private http: HttpClient) {}
+  constructor(private userService: UserService, private http: HttpClient ,private router: Router) {}
 
   ngOnInit(): void {
     this.loadUsers();
@@ -48,5 +49,12 @@ export class AdminUsersComponent implements OnInit {
            this.notifications.confirme +
            this.notifications.livraison +
            this.notifications.livre;
+  }
+  logout() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('role');
+    localStorage.removeItem('admin'); // si tu stockes aussi l'admin/client
+  
+    this.router.navigate(['/']); // Redirige vers la page de connexion
   }
 }

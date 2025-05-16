@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-gestion',
@@ -15,7 +16,7 @@ export class AdminGestionComponent implements OnInit {
   selectedAdmin: any = null;
   apiUrl = "http://127.0.0.1:8000/api/admins" // adapte si besoin
 
-  constructor(private fb: FormBuilder, private http: HttpClient) {
+  constructor(private fb: FormBuilder, private http: HttpClient, private router: Router) {
     this.adminForm = this.fb.group({
       prenom: ['', Validators.required],
       nom: ['', Validators.required],
@@ -110,5 +111,12 @@ export class AdminGestionComponent implements OnInit {
            this.notifications.confirme +
            this.notifications.livraison +
            this.notifications.livre;
+  }
+  logout() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('role');
+    localStorage.removeItem('admin'); // si tu stockes aussi l'admin/client
+  
+    this.router.navigate(['/']); // Redirige vers la page de connexion
   }
 }

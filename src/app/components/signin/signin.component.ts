@@ -15,53 +15,41 @@ export class SigninComponent {
   constructor(private http: HttpClient, private router: Router, private authService:AuthService) {}
 
   onLogin() {
-    const payload = {
-      email: this.email,
-      mot_de_passe: this.password
-    };
+  const payload = {
+    email: this.email,
+    mot_de_passe: this.password
+  };
 
-    this.http.post<any>('http://127.0.0.1:8000/api/login', payload)
-      .subscribe({
-        next: (res) => {
-          console.log('Connexion réussie', res);
-          if (res.client) {
-            this.authService.setRole('client');
-          // Sauvegarder les infos du client et le token
+  // Tenter d'abord une connexion client
+  this.http.post<any>('http://127.0.0.1:8000/api/login', payload)
+    .subscribe({
+      next: (res) => {
+        if (res.client) {
+          this.authService.setRole('client');
           localStorage.setItem('client', JSON.stringify(res.client));
           localStorage.setItem('token', res.token);
-
-          // Redirection vers une autre page (ex : dashboard ou home)
           this.router.navigate(['/']);
-          }
-        },
-        error: (err) => {
-          console.error('Erreur de connexion', err);
-          alert("Échec de la connexion. Veuillez vérifier vos identifiants.");
         }
-      });
-  }
-  onLoginAdmin() {
-    const payload = {
-      email: this.email,
-      mot_de_passe: this.password
-    };
-
-    this.http.post<any>('http://127.0.0.1:8000/api/admin/login', payload)
-      .subscribe({
-        next: (res) => {
-          console.log('Connexion réussie', res);
-          if (res.admin) {
-            this.authService.setRole('admin');
-          // Sauvegarder les infos de l'admin et le token
-          localStorage.setItem('admin', JSON.stringify(res.admin));
-          localStorage.setItem('token', res.token);
-          // Redirection vers une autre page (ex : dashboard ou home)
-          this.router.navigate(['/admin']);
-          }
-        },
-        error: (err) => {
-          console.error('Erreur de connexion', err);
-          alert("Échec de la connexion. Veuillez vérifier vos identifiants.");    }
-        });
+      },
+      error: (errClient) => {
+        // Si la connexion client échoue, tenter admin
+        this.http.post<any>('http://127.0.0.1:8000/api/admin/login', payload)
+          .subscribe({
+            next: (resAdmin) => {
+              if (resAdmin.admin) {
+                this.authService.setRole('admin');
+                localStorage.setItem('admin', JSON.stringify(resAdmin.admin));
+                localStorage.setItem('token', resAdmin.token);
+                this.router.navigate(['/admin']);
+              }
+            },
+            error: (errAdmin) => {
+              console.error('Échec de la connexion client et admin', errAdmin);
+              alert("Échec de la connexion. Veuillez vérifier vos identifiants.");
+            }
+          });
+      }
+    });
 }
+
 }
