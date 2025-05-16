@@ -11,7 +11,7 @@ export class AdminDevisComponent implements OnInit {
   devisList: Devis[] = [];
   selectedDevis: Devis | null = null;
   lignes: LigneDevis[] = [];
-  statuses = ['untraited', 'accepted', 'rejected'];
+  statuses = ['non-traité', 'accepté', 'rejeté'];
   message = { text: '', type: '' as 'success' | 'error' | '' };
   
   constructor(
