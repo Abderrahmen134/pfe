@@ -39,7 +39,8 @@ import { AdminLivreComponent } from './components/admin-livre/admin-livre.compon
 import { MultiSelectModule } from 'primeng/multiselect';
 import { DropdownModule } from 'primeng/dropdown';
 import { PowerbiReportComponent } from './powerbi-report/powerbi-report.component';
-
+import { MessageService } from 'primeng/api';
+import { ToastModule } from 'primeng/toast';
 
 
 
@@ -97,8 +98,10 @@ import { PowerbiReportComponent } from './powerbi-report/powerbi-report.componen
     InputNumberModule,
     BrowserAnimationsModule,
     MultiSelectModule,
+    ToastModule,
   ],
-  providers: [],
+  providers: [MessageService],
   bootstrap: [AppComponent]
+  
 })
 export class AppModule { }

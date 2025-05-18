@@ -4,7 +4,7 @@ import { ProductService } from '../../services/product.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { TypeService } from 'src/app/services/type.service';
 import { Type } from 'src/app/models/model';
-
+import { MessageService } from 'primeng/api';
 
 
 @Component({
@@ -21,7 +21,8 @@ export class ProductComponent implements OnInit {
     private router: Router,
     private productService: ProductService,
     private authService: AuthService,
-    private typeService: TypeService
+    private typeService: TypeService,
+    private messageService: MessageService // ✅
   ) {}
 
   ngOnInit(): void {
@@ -65,6 +66,12 @@ export class ProductComponent implements OnInit {
         localStorage.setItem('selectedProduct', JSON.stringify(products));
       }
     }
+    this.messageService.add({
+      severity: 'success',
+      summary: 'Succès',
+      detail: 'Produit ajouté au panier',
+      life: 3000
+    });
   }
   
 filterProduct(){
