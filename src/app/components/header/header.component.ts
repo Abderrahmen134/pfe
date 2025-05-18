@@ -29,7 +29,7 @@ export class HeaderComponent implements OnDestroy {
       takeUntil(this.destroy$),
       filter((event): event is NavigationEnd => event instanceof NavigationEnd)
     ).subscribe(event => {
-      this.isAdminRoute = event.urlAfterRedirects.startsWith('/admin');
+      this.isAdminRoute = event.urlAfterRedirects.startsWith('/admin') || event.urlAfterRedirects === '/report';
     });
   }
 

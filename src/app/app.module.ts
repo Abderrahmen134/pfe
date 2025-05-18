@@ -38,6 +38,7 @@ import { AdminGestionComponent } from './components/admin-gestion/admin-gestion.
 import { AdminLivreComponent } from './components/admin-livre/admin-livre.component';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { DropdownModule } from 'primeng/dropdown';
+import { PowerbiReportComponent } from './powerbi-report/powerbi-report.component';
 
 
 
@@ -69,6 +70,7 @@ import { DropdownModule } from 'primeng/dropdown';
     
     AdminGestionComponent,
           AdminLivreComponent,
+          PowerbiReportComponent,
   
    
 

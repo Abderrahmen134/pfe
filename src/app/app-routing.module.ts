@@ -22,6 +22,7 @@ import { AdminLivreComponent } from './components/admin-livre/admin-livre.compon
 
 import { ClientGuard } from './guards/client.guard';
 import { AdminGuard } from './guards/admin.guard';
+import { PowerbiReportComponent } from './powerbi-report/powerbi-report.component';
 
 
 const routes: Routes = [
@@ -38,7 +39,8 @@ const routes: Routes = [
   { path: 'admin-products', component: AdminProductsComponent, canActivate: [AdminGuard]  },
   {path: 'devis-non-traite', component: DevisNonTraiteComponent, canActivate: [AdminGuard] },
   {path: 'devis-traite', component: DevisTraiteComponent, canActivate: [AdminGuard]},
- // {path: 'status', component: StatutComponent},
+ {path: 'report', component: PowerbiReportComponent, canActivate: [AdminGuard] },
+  // {path: 'status', component: StatutComponent},
   {path: 'admin-devis', component: AdminDevisComponent, canActivate: [AdminGuard] },
   { path: 'client-devis', component: ClientDevisComponent, canActivate: [ClientGuard] },
   {path: 'admin-encours', component: AdminEncoursComponent, canActivate: [AdminGuard]  },
