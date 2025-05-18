@@ -1,3 +1,64 @@
+<div class="admin-container"> 
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <h2><img src="assets/images/ASM.png" class="logo-icon"></h2>
+    <nav>
+      <ul>
+        <li>
+          <a routerLink="/admin" routerLinkActive="active">
+            <img src="assets/images/home.png" class="menu-icon"> 
+            Accueil
+            <div class="notification-badge" *ngIf="totalNotifications > 0">
+              {{ totalNotifications }}
+            </div>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/report" routerLinkActive="active">
+            <img src="assets/images/dashboard.png" class="menu-icon"> 
+            Tableau de bord
+            <div class="notification-badge" *ngIf="notifications.dashboard > 0">
+              {{ notifications.dashboard }}
+            </div>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/admin-products" routerLinkActive="active">
+            <img src="assets/images/box.png" class="menu-icon"> 
+            Gestion des produits
+            <div class="notification-badge" *ngIf="notifications.produits > 0">
+              {{ notifications.produits }}
+            </div>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/admin-users" routerLinkActive="active">
+            <img src="assets/images/client.png" class="menu-icon"> 
+            Gestion des clients
+            <div class="notification-badge" *ngIf="notifications.clients > 0">
+              {{ notifications.clients }}
+            </div>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/admin-gestion" routerLinkActive="active">
+            <img src="assets/images/admin.png" class="menu-icon"> 
+            Gestion des administrateurs
+            <div class="notification-badge" *ngIf="notifications.admins > 0">
+              {{ notifications.admins }}
+            </div>
+          </a>
+        </li>
+        <li>
+          <a (click)="logout()">
+            <img src="assets/images/logout.png" class="menu-icon"> 
+            Déconnexion
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </aside>
+
 <iframe
  title="Rapport BI" 
  width="100%" 
